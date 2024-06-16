@@ -1,0 +1,16 @@
+import = [
+  "/usr/lib/node_modules/alacritty-themes/themes/Terminal-app.toml"
+]
+
+[font]
+size = 20
+
+  [font.normal]
+  family = "UbuntuMono Nerd Font"
+
+[window]
+opacity = 0.9
+
+  [window.padding]
+  x = 5
+  y = 5

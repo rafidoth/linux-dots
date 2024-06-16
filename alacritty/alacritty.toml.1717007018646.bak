@@ -1,0 +1,49 @@
+import = [
+  "/usr/lib/node_modules/alacritty-themes/themes/Gruvbox-Dark.toml"
+]
+
+[env]
+LANG = "en_US.UTF-8"
+LC_CTYPE = "en_US.UTF-8"
+TERM = "alacritty"
+
+[font]
+size = 13
+
+  [font.normal]
+  family = "JetBrainsMonoNL Nerd Font"
+  style = "SemiBold"
+
+[window]
+opacity = 0.9
+
+  [window.padding]
+  x = 5
+  y = 5
+
+[colors.primary]
+background = "#0D1117"
+foreground = "#D4D4D4"
+
+[colors.cursor]
+text = "#1d1f21"
+cursor = "#cccccc"
+
+[colors.normal]
+black = "#000000"
+red = "#cd3131"
+green = "#0dbc79"
+yellow = "#e5e510"
+blue = "#2472c8"
+magenta = "#bc3fbc"
+cyan = "#11a8cd"
+white = "#e5e5e5"
+
+[colors.bright]
+black = "#666666"
+red = "#f14c4c"
+green = "#23d18b"
+yellow = "#f5f543"
+blue = "#3b8eea"
+magenta = "#d670d6"
+cya

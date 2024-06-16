@@ -1,0 +1,21 @@
+import = [
+  "/usr/lib/node_modules/alacritty-themes/themes/Gruvbox-Dark.toml"
+]
+
+[env]
+LANG = "en_US.UTF-8"
+LC_CTYPE = "en_US.UTF-8"
+TERM = "alacritty"
+
+[font]
+size = 13
+
+  [font.normal]
+  family = "JetBrainsMonoNL Nerd Font"
+  style = "Bold"
+
+[window]
+opacity = 0.9
+  [window.padding]
+  x = 5
+  y = 5

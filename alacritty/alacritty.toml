@@ -1,0 +1,17 @@
+import = [
+  "/usr/lib/node_modules/alacritty-themes/themes/Brewer.dark.toml"
+]
+
+[font]
+size = 20
+
+  [font.normal]
+  family = "GeistMono Nerd Font"
+  style = "SemiBold"
+
+[window]
+opacity = 0.9
+
+  [window.padding]
+  x = 5
+  y = 5

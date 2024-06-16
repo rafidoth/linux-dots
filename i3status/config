@@ -1,0 +1,31 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+
+general {
+        colors = true
+        interval = 5
+}
+
+order += "disk /"
+order += "battery all"
+order += "load"
+order += "tztime local"
+
+battery all {
+        format = "%status %percentage %remaining"
+        integer_battery_capacity = true
+}
+
+tztime local {
+        format = "%d-%m-%Y %I:%M"
+}
+
+load {
+        format = "%1min"
+}
+
+disk "/" {
+        format = "%avail"
+}
+
