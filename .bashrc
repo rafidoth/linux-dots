@@ -141,6 +141,7 @@ alias r='~/bin/restore_i3.sh'
 alias gimp='gimp --as-new ~/Documents/Untitled.xcf'
 setxkbmap -option "caps:escape" 
 
+alias fetchdots="~/bin/fetchDotfiles.sh"
 
 cpp() {
   # Check if a filename is provided
