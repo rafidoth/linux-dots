@@ -1,0 +1,58 @@
+{
+    "window.zoomLevel": 2,
+    "workbench.activityBar.location": "top",
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "editor.fontWeight": "semibold",
+    "window.customTitleBarVisibility": "auto",
+    "security.workspace.trust.untrustedFiles": "newWindow",
+    "explorer.confirmDelete": false,
+    "editor.mouseWheelZoom": true,
+    "editor.fontSize": 16,
+    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": false,
+    "workbench.startupEditor": "none",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.suggest.showWords": false,
+    "accessibility.signals.terminalBell": {
+        "sound": "off",
+        "announcement": "off"
+    },
+    "editor.tabCompletion": "onlySnippets",
+    "window.density.editorTabHeight": "compact",
+    "terminal.integrated.fontSize": 18,
+    "chat.editor.fontWeight": "bold",
+    "editor.lineHeight": 1.3,
+    "editor.stickyScroll.maxLineCount": 1,
+    "editor.fontFamily": "GeistMono Nerd Font",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "keyboard.dispatch": "keyCode",
+    "editor.inlineSuggest.enabled": false,
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "yaml.schemas": {
+          "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+    },
+    "yaml.customTags": [ 
+          "!ENV scalar",
+          "!ENV sequence",
+          "!relative scalar",
+          "tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
+          "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
+          "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
+    ],
+    "redhat.telemetry.enabled": true,
+    "files.autoSave": "afterDelay",
+    "git.openRepositoryInParentFolders": "never",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "vim.insertModeKeyBindings": [
+        {
+          "before": ["j", "j"],
+          "after": ["<Esc>"]
+        }
+      ],
+      "workbench.colorTheme": "Aura Dark",
+      "editor.lineNumbers": "relative",
+      "workbench.sideBar.location": "right",
+}
