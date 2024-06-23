@@ -1,17 +1,16 @@
 import = [
-  "/usr/lib/node_modules/alacritty-themes/themes/Brewer.dark.toml"
+  "/usr/lib/node_modules/alacritty-themes/themes/IR-Black.toml"
 ]
 
 [font]
-size = 20
+size = 25
 
   [font.normal]
-  family = "GeistMono Nerd Font"
-  style = "SemiBold"
+  family = "UbuntuMono Nerd Font"
 
 [window]
-opacity = 0.9
+opacity = 1
 
   [window.padding]
-  x = 5
-  y = 5
+  x = 2
+  y = 2

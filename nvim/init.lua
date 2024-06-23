@@ -32,4 +32,10 @@ require("lazy").setup("plugins")
 vim.opt.background = "dark"
 
 
+vim.cmd([[
+  augroup cpp_template
+    autocmd!
+    autocmd BufNewFile *.cpp 0r /home/raphy/temp.cpp 
+  augroup END
+]])
 

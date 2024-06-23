@@ -94,7 +94,7 @@ bindsym $mod+b workspace 2
 bindsym $mod+3 workspace 3
 bindsym $mod+i workspace 4
 bindsym $mod+q workspace 5
-bindsym $mod+6 workspace 6
+bindsym $mod+v workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
@@ -152,7 +152,7 @@ bindsym $mod+r mode "resize"
 
 # keybindings added by me
 #============================
-bindsym $mod+o exec flameshot gui
+bindsym $mod+1 exec flameshot gui
 exec_always --no-startup-id alternating_layouts.py
 exec_always --no-startup-id autotiling
 
@@ -160,7 +160,7 @@ for_window [class=".*"] border pixel 0
 
 
 
-# start alacrEitty
+# start alacritty
 bindsym $mod+Return exec alacritty
 bindsym $mod+t exec "rofi -show drun"
 
@@ -173,15 +173,13 @@ exec --no-startup-id picom
 exec nitrogen --restore --set-scaled
 
 exec_always --no-startup-id killall xfce4-panel
-exec r
-
-set $i3_resurrect i3-resurrect
 
 
 
 
 
- #Start i3bar to display a workspace bar (plus the system information i3status
+
+#Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status

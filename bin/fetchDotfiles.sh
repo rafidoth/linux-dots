@@ -9,4 +9,6 @@ cp -r ~/.config/tmux/tmux.conf ~/dotfiles/tmux
 cp -r ~/.config/picom ~/dotfiles
 cp -r ~/bin ~/dotfiles
 cp -r ~/.bashrc ~/dotfiles
+cp -r ~/.config/Code\ -\ OSS/User/keybindings.json ~/dotfiles
+ 
 

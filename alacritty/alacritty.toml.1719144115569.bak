@@ -1,0 +1,16 @@
+import = [
+  "/usr/lib/node_modules/alacritty-themes/themes/github_dimmed.toml"
+]
+
+[font]
+size = 25
+
+  [font.normal]
+  family = "UbuntuMono Nerd Font"
+
+[window]
+opacity = 1
+
+  [window.padding]
+  x = 2
+  y = 2

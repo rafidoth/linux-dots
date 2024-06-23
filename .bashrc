@@ -206,3 +206,6 @@ export PATH="$HOME/bin:$PATH"
 export EDITOR=nvim
 export VISUAL=nvim
 export TERM=alacritty
+
+xfconf-query -c xsettings -p /Xft/DPI -s 70 
+

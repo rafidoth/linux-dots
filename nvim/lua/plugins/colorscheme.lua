@@ -23,15 +23,24 @@
 -- }
 
 
+-- return{
+--     {
+--        'AlessandroYorba/Alduin',
+--         config = function()
+--             vim.cmd("colorscheme alduin")
+--         end
+--     }
+-- }
+
+
 return{
     {
-       'AlessandroYorba/Alduin',
+        'Mofiqul/vscode.nvim',
         config = function()
-            vim.cmd("colorscheme alduin")
+            vim.cmd("colorscheme vscode")
         end
     }
 }
-
 
 
 
