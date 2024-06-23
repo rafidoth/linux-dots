@@ -207,6 +207,6 @@
     {
         "command": "workbench.action.quickOpenLeastRecentlyUsedEditorInGroup",
         "key": "space tab",
-        "when": "vim.mode == 'Normal' && !activeEditorGroupEmpty"
+        "when": "vim.mode == 'Normal' && !activeEditorGroupEmpty && editorTextFocus"
     },
 ]

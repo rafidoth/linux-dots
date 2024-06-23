@@ -113,10 +113,10 @@ shopt -s expand_aliases
 shopt -s histappend
 
 #Aliases
-alias termdown1="termdown --no-figlet 30m"
-alias termdown2="termdown --no-figlet 50m"
-alias termdown3="termdown --no-figlet 1h30m"
-alias termdown4="termdown --no-figlet 2h30m"
+alias ts="termdown --no-figlet 30m"
+alias tl="termdown --no-figlet 50m"
+alias txl="termdown --no-figlet 1h30m"
+alias txxl="termdown --no-figlet 2h30m"
 alias cdalgos="cd ~/Documents/algos/"
 alias pushtogit="git add . && git commit -m"--" && git push"
 alias n="nnn"

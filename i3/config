@@ -27,9 +27,6 @@ font pango:UbuntuMono Nerd Font Mono 12
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -76,11 +73,6 @@ bindsym $mod+f fullscreen
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -186,3 +178,23 @@ bar {
         tray_output primary
 }
 bindsym $mod+Shift+period exec systemctl suspend
+
+
+
+
+
+
+
+
+# floating window setups
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+#change alacritty to floating mode, resized 
+bindsym $mod+o  resize set 200 200

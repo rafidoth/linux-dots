@@ -10,5 +10,13 @@ cp -r ~/.config/picom ~/dotfiles
 cp -r ~/bin ~/dotfiles
 cp -r ~/.bashrc ~/dotfiles
 cp -r ~/.config/Code\ -\ OSS/User/keybindings.json ~/dotfiles
+
+
+
+cd ~/dotfiles
+git add .
+git commit -m"auto"
+git push
+
  
 
