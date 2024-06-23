@@ -91,7 +91,7 @@
     },
     {
         "command": "workbench.action.closeActiveEditor",
-        "key": "space b d",
+        "key": "space w",
         "when": "vim.mode == 'Normal' && editorTextFocus"
     },
     {
@@ -192,5 +192,21 @@
         "command": "list.toggleExpand",
         "key": "enter",
         "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && explorerResourceIsFolder && !inputFocus"
-    }
+    },
+    // extras
+    {
+        "command": "editor.action.commentLine",
+        "key": "g c",
+        "when": "vim.mode == 'Normal' && editorTextFocus && !editorReadonly"
+    },
+    {
+        "command": "cursorTop",
+        "key": "g g",
+        "when": "vim.mode == 'Normal' && textInputFocus"
+    },
+    {
+        "command": "workbench.action.quickOpenLeastRecentlyUsedEditorInGroup",
+        "key": "space tab",
+        "when": "vim.mode == 'Normal' && !activeEditorGroupEmpty"
+    },
 ]
