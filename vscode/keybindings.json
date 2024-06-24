@@ -2,19 +2,19 @@
     // Navigation
     {
         "command": "workbench.action.navigateLeft",
-        "key": "ctrl-h"
+        "key": "alt-h"
     },
     {
         "command": "workbench.action.navigateRight",
-        "key": "ctrl-l"
+        "key": "alt-l"
     },
     {
         "command": "workbench.action.navigateUp",
-        "key": "ctrl-k"
+        "key": "alt-k"
     },
     {
         "command": "workbench.action.navigateDown",
-        "key": "ctrl-j"
+        "key": "alt-j"
     },
     {
         "command": "workbench.action.showAllEditors",
@@ -202,7 +202,7 @@
     {
         "command": "cursorTop",
         "key": "g g",
-        "when": "vim.mode == 'Normal' && textInputFocus"
+        "when": "vim.mode == 'Normal' && textInputFocus && editorTextFocus"
     },
     {
         "command": "workbench.action.quickOpenLeastRecentlyUsedEditorInGroup",

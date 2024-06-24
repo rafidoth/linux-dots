@@ -197,4 +197,4 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 #change alacritty to floating mode, resized 
-bindsym $mod+o  resize set 200 200
+bindsym $mod+o  resize set 120 80 

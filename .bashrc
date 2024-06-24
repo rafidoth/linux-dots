@@ -207,5 +207,5 @@ export EDITOR=nvim
 export VISUAL=nvim
 export TERM=alacritty
 
-xfconf-query -c xsettings -p /Xft/DPI -s 70 
 
+source /home/raphy/.tmc-autocomplete.sh || true

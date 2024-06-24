@@ -1,10 +1,9 @@
 {
-    "window.zoomLevel": 2,
+    "window.zoomLevel": 3,
     "workbench.activityBar.location": "top",
     "window.commandCenter": false,
     "workbench.layoutControl.enabled": false,
     "editor.fontWeight": "semibold",
-    "window.customTitleBarVisibility": "auto",
     "security.workspace.trust.untrustedFiles": "newWindow",
     "explorer.confirmDelete": false,
     "editor.mouseWheelZoom": true,
@@ -29,7 +28,6 @@
         "asvetliakov.vscode-neovim": 1
     },
     "keyboard.dispatch": "keyCode",
-    "editor.inlineSuggest.enabled": false,
     "terminal.integrated.enableMultiLinePasteWarning": false,
     "yaml.schemas": {
           "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
@@ -52,7 +50,8 @@
           "after": ["<Esc>"]
         }
       ],
-      "workbench.colorTheme": "Aura Dark",
       "editor.lineNumbers": "relative",
-      "workbench.sideBar.location": "right",
+      "window.menuBarVisibility": "toggle",
+      "editor.suggest.preview": true,
+      "tabnine.experimentalAutoImports": true,
 }
