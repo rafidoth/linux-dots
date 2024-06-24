@@ -43,7 +43,6 @@
     "redhat.telemetry.enabled": true,
     "files.autoSave": "afterDelay",
     "git.openRepositoryInParentFolders": "never",
-    "editor.cursorSmoothCaretAnimation": "on",
     "vim.insertModeKeyBindings": [
         {
           "before": ["j", "j"],
