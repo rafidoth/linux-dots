@@ -1,9 +1,9 @@
 {
+  "everforest": { "branch": "master", "commit": "29d469d7525c0b32c6dc1699a1c35e70a728306e" },
   "lazy.nvim": { "branch": "main", "commit": "24fa2a97085ca8a7220b5b078916f81e316036fd" },
   "mini.comment": { "branch": "main", "commit": "a4b7e46deb9ad2feb8902cc5dbf087eced112ee5" },
   "nvim-autopairs": { "branch": "master", "commit": "c15de7e7981f1111642e7e53799e1211d4606cb9" },
   "nvim-treesitter": { "branch": "master", "commit": "5c924407cf110e9da4f3ba02ffed127b4198ad89" },
   "rose-pine": { "branch": "main", "commit": "87aa437172357ad8f916942bca249ceadc6c68b1" },
-  "vim-transparent": { "branch": "master", "commit": "a12086150556f5a17611759bbd7e9dabb78175eb" },
-  "vscode.nvim": { "branch": "main", "commit": "ff3926901d4160886f707a8a70b5c2e82979a7c4" }
+  "vim-transparent": { "branch": "master", "commit": "a12086150556f5a17611759bbd7e9dabb78175eb" }
 }

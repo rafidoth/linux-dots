@@ -126,6 +126,7 @@ alias i3conf="nvim ~/.config/i3/config"
 alias alconf="nvim ~/.config/alacritty/alacritty.toml"
 alias routine="cat ~/routine.txt"
 alias installfont="cp -a ./ /usr/share/fonts/TTF"
+alias vim="nvim"
 #vim
 alias vimt="cat vim_navigation.txt"
 alias nvimconf="nvim ~/.config/nvim/init.lua"

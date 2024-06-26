@@ -33,16 +33,24 @@
 -- }
 
 
+-- return{
+--     {
+--         'Mofiqul/vscode.nvim',
+--         config = function()
+--             vim.cmd("colorscheme vscode")
+--         end
+--     }
+-- }
+
+
 return{
     {
-        'Mofiqul/vscode.nvim',
+        'sainnhe/everforest',
         config = function()
-            vim.cmd("colorscheme vscode")
+            vim.cmd("colorscheme everforest")
         end
     }
 }
-
-
 
 
 
