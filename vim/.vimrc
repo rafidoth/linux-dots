@@ -20,8 +20,8 @@ nnoremap <C-a> ggVG
 nnoremap <C-b> :w<CR>:!g++ -std=c++17 -Wshadow -Wall -o a.out % -g -fsanitize=undefined -D_GLIBCXX_DEBUG && ./a.out<CR>
 nnoremap <C-c> "+y
 nnoremap <C-c> "+yy
-nnoremap <C-u> <C-u>zz
-nnoremap <C-d> <C-d>zz
+nnoremap <C-k> zz<C-u>zz
+nnoremap <C-j> zz<C-d>zz
 
 
 
@@ -29,7 +29,7 @@ nnoremap <C-d> <C-d>zz
 
 augroup cpp_template
     autocmd!
-    autocmd BufNewFile *.cpp 0r /home/raphy/temp.cpp
+    autocmd BufNewFile *.cpp 0r /home/rafidoth/temp.cpp
 augroup END
 
 
