@@ -1,0 +1,14 @@
+{
+  "environment": {
+    "executable": "/home/raphy/dev/my-first-py/.venv/bin/python",
+    "prefix": "/home/raphy/dev/my-first-py/.venv",
+    "version": "3.13.1.final.0",
+    "is64Bit": true,
+    "symlinks": [
+      "/home/raphy/dev/my-first-py/.venv/bin/python",
+      "/home/raphy/dev/my-first-py/.venv/bin/python3",
+      "/home/raphy/dev/my-first-py/.venv/bin/python3.13"
+    ]
+  },
+  "symlinks": []
+}

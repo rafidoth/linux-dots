@@ -1,0 +1,42 @@
+import React, { useState } from "react";
+import { NextBookedType } from "../types";
+import { differenceInMinutes, format } from "date-fns";
+import { minutesToHours } from "../(student)/s/group-sessions/page";
+
+type Props = {
+  BookedSession: NextBookedType;
+  status: "upcoming" | "goingon";
+};
+
+const calculateTimeLeft = (t: Date, d: number) => {
+  const endtime = new Date(t.getTime() + d * 60 * 1000);
+  const now = new Date();
+  console.log("nowtime", now);
+  console.log("endtime", endtime);
+  const diff = differenceInMinutes(endtime, now);
+  return diff;
+};
+const SidebarTimeLeft = ({ BookedSession, status }: Props) => {
+  const [timeLeft, setTimeLeft] = useState(
+    status === "goingon"
+      ? calculateTimeLeft(
+          BookedSession.StartTime,
+          BookedSession.DurationInMinutes
+        )
+      : differenceInMinutes(BookedSession.StartTime, new Date())
+  );
+  return (
+    <div className="flex flex-col bg-blue-900/20 p-2 text-blue-400">
+      <span className="bg-blue-500 text-black px-2 rounded-md w-[100px] my-2">
+        upcoming
+      </span>
+      <span>{format(BookedSession.StartTime, "PPp")}</span>
+      <span className="text-xl font-semibold">
+        {BookedSession.SessionTitle}
+      </span>
+      <span className="flex  my-2">{minutesToHours(timeLeft)}</span>
+    </div>
+  );
+};
+
+export default SidebarTimeLeft;

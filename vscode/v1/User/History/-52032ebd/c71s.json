@@ -1,0 +1,13 @@
+{
+  "name": "jigao-new",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "web:dev": "pnpm --filter web dev",
+    "server:dev": "pnpm --filter api dev",
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,654 @@
+{
+  "version": 3,
+  "requesterUsername": "rafidoth",
+  "requesterAvatarIconUri": {
+    "$mid": 1,
+    "path": "/u/67283985",
+    "scheme": "https",
+    "authority": "avatars.githubusercontent.com",
+    "query": "v=4"
+  },
+  "responderUsername": "GitHub Copilot",
+  "responderAvatarIconUri": {
+    "id": "copilot"
+  },
+  "initialLocation": "panel",
+  "requests": [
+    {
+      "requestId": "request_41feb2fb-abc0-4d2d-80d5-7f52d42fab48",
+      "message": {
+        "text": "what is issue",
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 13
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 14
+            },
+            "text": "what is issue",
+            "kind": "text"
+          }
+        ]
+      },
+      "variableData": {
+        "variables": [
+          {
+            "id": "vscode.implicit.selection",
+            "name": "file:page.tsx",
+            "value": {
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/v1_ai/app/dashboard/create/page.tsx",
+                "external": "file:///home/raphy/dev/v1_ai/app/dashboard/create/page.tsx",
+                "path": "/home/raphy/dev/v1_ai/app/dashboard/create/page.tsx",
+                "scheme": "file"
+              },
+              "range": {
+                "startLineNumber": 72,
+                "startColumn": 1,
+                "endLineNumber": 85,
+                "endColumn": 7,
+                "selectionStartLineNumber": 72,
+                "selectionStartColumn": 1,
+                "positionLineNumber": 85,
+                "positionColumn": 7
+              }
+            },
+            "isFile": true,
+            "isDynamic": true,
+            "modelDescription": "User's active selection"
+          }
+        ]
+      },
+      "response": [
+        {
+          "value": "The issue with the provided code is that the `map` function is not returning any JSX elements. In React, when using `map` to render a list of components, you need to return the JSX elements from the callback function.\n\nHere's the corrected code:\n\n```tsx\n",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        },
+        {
+          "kind": "codeblockUri",
+          "uri": {
+            "$mid": 1,
+            "external": "file:///home/raphy/dev/v1_ai/app/dashboard/create/page.tsx",
+            "path": "/home/raphy/dev/v1_ai/app/dashboard/create/page.tsx",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": "services.map((service) => {\n  return (\n    <Card className=\"w-[400px] bg-transparent hover:border-2 cursor-pointer\">\n      <CardHeader className=\"font-semibold text-3xl\">\n        <CardTitle>Context Based Quiz Generation</CardTitle>\n        <CardDescription>\n          You can provide your context in text input and generate quizzes from\n          that context\n        </CardDescription>\n      </CardHeader>\n      <CardContent className=\"flex \">\n        <TextIcon width={64} height={64} />\n      </CardContent>\n    </Card>\n  );\n});\n```\n\nNote the addition of the `return` statement inside the `map` function.",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        }
+      ],
+      "responseId": "response_ea4a9fae-0f79-4e2a-9c3c-88fe32ca9d38",
+      "isHidden": false,
+      "result": {
+        "timings": {
+          "firstProgress": 1299,
+          "totalElapsed": 4749
+        },
+        "metadata": {
+          "codeBlocks": [
+            {
+              "code": "services.map((service) => {\n  return (\n    <Card className=\"w-[400px] bg-transparent hover:border-2 cursor-pointer\">\n      <CardHeader className=\"font-semibold text-3xl\">\n        <CardTitle>Context Based Quiz Generation</CardTitle>\n        <CardDescription>\n          You can provide your context in text input and generate quizzes from\n          that context\n        </CardDescription>\n      </CardHeader>\n      <CardContent className=\"flex \">\n        <TextIcon width={64} height={64} />\n      </CardContent>\n    </Card>\n  );\n});\n",
+              "resource": {
+                "$mid": 1,
+                "path": "/home/raphy/dev/v1_ai/app/dashboard/create/page.tsx",
+                "scheme": "file"
+              },
+              "language": "tsx",
+              "markdownBeforeBlock": "The issue with the provided code is that the `map` function is not returning any JSX elements. In React, when using `map` to render a list of components, you need to return the JSX elements from the callback function.\n\nHere's the corrected code:\n\n"
+            }
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "what is issue"
+            },
+            {
+              "role": "assistant",
+              "content": "The issue with the provided code is that the `map` function is not returning any JSX elements. In React, when using `map` to render a list of components, you need to return the JSX elements from the callback function.\n\nHere's the corrected code:\n\n```tsx\n// filepath: /home/raphy/dev/v1_ai/app/dashboard/create/page.tsx\nservices.map((service) => {\n  return (\n    <Card className=\"w-[400px] bg-transparent hover:border-2 cursor-pointer\">\n      <CardHeader className=\"font-semibold text-3xl\">\n        <CardTitle>Context Based Quiz Generation</CardTitle>\n        <CardDescription>\n          You can provide your context in text input and generate quizzes from\n          that context\n        </CardDescription>\n      </CardHeader>\n      <CardContent className=\"flex \">\n        <TextIcon width={64} height={64} />\n      </CardContent>\n    </Card>\n  );\n});\n```\n\nNote the addition of the `return` statement inside the `map` function."
+            }
+          ],
+          "modelMessageId": "6a970442-8eb5-4b3a-bd8f-7fe814fa4996",
+          "responseId": "1af917fd-7844-4d33-8565-6f73fd2b6e4c",
+          "sessionId": "d3e05bd3-42f9-49a2-9fa7-903237183d5d",
+          "agentId": "github.copilot.default"
+        }
+      },
+      "followups": [
+        {
+          "kind": "reply",
+          "agentId": "github.copilot.default",
+          "message": "What if I need conditional rendering?"
+        }
+      ],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.default",
+        "description": "Ask Copilot",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": true,
+          "helpTextPrefix": "You can ask me general programming questions, or chat with the following participants which have specialized expertise and can perform actions:",
+          "helpTextVariablesPrefix": "You can also help me understand your question by using the following variables to give me extra context:",
+          "helpTextPostfix": {
+            "value": "To have a great conversation, ask me questions as if I was a real programmer:\n\n* **Show me the code** you want to talk about by having the files open and selecting the most important lines.\n* **Make refinements** by asking me follow-up questions, adding clarifications, providing errors, etc.\n* **Review my suggested code** and tell me about issues or improvements, so I can iterate on it.\n\nYou can also ask me questions about your editor selection by [starting an inline chat session](command:inlineChat.start).\n\nLearn more about [GitHub Copilot](https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted) in [Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). Or explore the [Copilot walkthrough](command:github.copilot.open.walkthrough).",
+            "isTrusted": {
+              "enabledCommands": [
+                "inlineChat.start",
+                "github.copilot.open.walkthrough"
+              ]
+            },
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "uris": {
+              "command:inlineChat.start": {
+                "$mid": 1,
+                "path": "inlineChat.start",
+                "scheme": "command"
+              },
+              "https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted": {
+                "$mid": 1,
+                "path": "/copilot/using-github-copilot/getting-started-with-github-copilot",
+                "scheme": "https",
+                "authority": "docs.github.com",
+                "query": "tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted"
+              },
+              "https://code.visualstudio.com/docs/copilot/overview": {
+                "$mid": 1,
+                "path": "/docs/copilot/overview",
+                "scheme": "https",
+                "authority": "code.visualstudio.com"
+              },
+              "command:github.copilot.open.walkthrough": {
+                "$mid": 1,
+                "path": "github.copilot.open.walkthrough",
+                "scheme": "command"
+              }
+            }
+          },
+          "supportIssueReporting": false,
+          "supportsSlowVariables": true,
+          "requester": {
+            "name": "rafidoth",
+            "icon": {
+              "$mid": 1,
+              "path": "/u/67283985",
+              "scheme": "https",
+              "authority": "avatars.githubusercontent.com",
+              "query": "v=4"
+            }
+          }
+        },
+        "name": "GitHubCopilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "slashCommands": [],
+        "disambiguation": [
+          {
+            "category": "generate_code_sample",
+            "description": "The user wants to generate code snippets without referencing the contents of the current workspace. This category does not include generating entire projects.",
+            "examples": [
+              "Write an example of computing a SHA256 hash."
+            ]
+          },
+          {
+            "category": "question_about_specific_files",
+            "description": "The user has a question about a specific file or code snippet that they have provided as part of their query, and the question does not require additional workspace context to answer.",
+            "examples": [
+              "What does this file do?"
+            ]
+          }
+        ]
+      },
+      "contentReferences": [
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/v1_ai/app/dashboard/create/page.tsx",
+              "external": "file:///home/raphy/dev/v1_ai/app/dashboard/create/page.tsx",
+              "path": "/home/raphy/dev/v1_ai/app/dashboard/create/page.tsx",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 72,
+              "startColumn": 1,
+              "endLineNumber": 85,
+              "endColumn": 7
+            }
+          }
+        }
+      ],
+      "codeCitations": [],
+      "timestamp": 1739866492921
+    },
+    {
+      "requestId": "request_ba048ed8-4c06-4592-bda2-97efea2221cb",
+      "message": {
+        "text": "is this okay?",
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 13
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 14
+            },
+            "text": "is this okay?",
+            "kind": "text"
+          }
+        ]
+      },
+      "variableData": {
+        "variables": []
+      },
+      "response": [],
+      "responseId": "response_3ffd86e5-c1c6-4a18-97d9-593ec4bd79a1",
+      "isHidden": false,
+      "result": {
+        "timings": {
+          "totalElapsed": 4611
+        },
+        "metadata": {
+          "codeBlocks": [],
+          "messages": [
+            {
+              "role": "user",
+              "content": "is this okay?"
+            },
+            {
+              "role": "assistant",
+              "content": "```typescript\n  const makeUsername = (fName: string, lName: string) => {\n    let username = \"\";\n    if (fName.length > 3) {\n      username = fName.substring(0, 3);\n    } else {\n      username = fName;\n    }\n\n    if (lName.length > 3) {\n      username += lName.substring(0, 3);\n    } else {\n      username += lName;\n    }\n    return username;\n  };\n```\n\nYes, this is okay. The `makeUsername`"
+            }
+          ],
+          "modelMessageId": "aaaccae0-dc28-47ab-ad94-f6a270fcade1",
+          "responseId": "9adf27a2-cf59-4efe-832b-0cac837415ef",
+          "sessionId": "c25c1f40-32fd-45a0-8328-2d6494c0e1cb",
+          "agentId": "github.copilot.editor"
+        }
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.editor",
+        "description": "Ask Copilot",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": false,
+          "supportIssueReporting": false
+        },
+        "name": "Copilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "editor"
+        ],
+        "slashCommands": [
+          {
+            "name": "doc",
+            "description": "Add documentation comment for this symbol"
+          },
+          {
+            "name": "fix",
+            "description": "Propose a fix for the problems in the selected code"
+          },
+          {
+            "name": "explain",
+            "description": "Explain how the code in your active editor works"
+          },
+          {
+            "name": "tests",
+            "description": "Generate unit tests for the selected code"
+          }
+        ],
+        "disambiguation": []
+      },
+      "contentReferences": [],
+      "codeCitations": [],
+      "timestamp": 1739997304876
+    },
+    {
+      "requestId": "request_3d6f3812-e87f-4f10-a1f2-2d4fe7e9a125",
+      "message": {
+        "text": "write all types from Database[public][tables] from supabase.ts file ",
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 68
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 69
+            },
+            "text": "write all types from Database[public][tables] from supabase.ts file ",
+            "kind": "text"
+          }
+        ]
+      },
+      "variableData": {
+        "variables": [
+          {
+            "id": "file:///home/raphy/dev/v1_ai/app/utils/supabase.ts",
+            "value": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/v1_ai/app/utils/supabase.ts",
+              "external": "file:///home/raphy/dev/v1_ai/app/utils/supabase.ts",
+              "path": "/home/raphy/dev/v1_ai/app/utils/supabase.ts",
+              "scheme": "file"
+            },
+            "name": "supabase.ts",
+            "isFile": true,
+            "isDynamic": true
+          },
+          {
+            "id": "vscode.implicit.viewport",
+            "name": "file:types.ts",
+            "value": {
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/v1_ai/app/utils/types.ts",
+                "external": "file:///home/raphy/dev/v1_ai/app/utils/types.ts",
+                "path": "/home/raphy/dev/v1_ai/app/utils/types.ts",
+                "scheme": "file"
+              },
+              "range": {
+                "startLineNumber": 1,
+                "startColumn": 1,
+                "endLineNumber": 24,
+                "endColumn": 1
+              }
+            },
+            "isFile": true,
+            "isDynamic": true,
+            "modelDescription": "User's current visible code"
+          }
+        ]
+      },
+      "response": [
+        {
+          "value": "Here are all the types from ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "Database[\"public\"][\"Tables\"]",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 9,
+                "startColumn": 13,
+                "endLineNumber": 9,
+                "endColumn": 13
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/v1_ai/app/utils/supabase.ts",
+                "external": "file:///home/raphy/dev/v1_ai/app/utils/supabase.ts",
+                "path": "/home/raphy/dev/v1_ai/app/utils/supabase.ts",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "8e4033eb-66b8-4463-b9e9-0ae9fc112abc"
+        },
+        {
+          "value": " in the ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "uris": {}
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "$mid": 1,
+            "fsPath": "/home/raphy/dev/v1_ai/app/utils/supabase.ts",
+            "external": "file:///home/raphy/dev/v1_ai/app/utils/supabase.ts",
+            "path": "/home/raphy/dev/v1_ai/app/utils/supabase.ts",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": " file:\n\n```typescript\n",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        },
+        {
+          "kind": "codeblockUri",
+          "uri": {
+            "$mid": 1,
+            "external": "file:///home/raphy/dev/v1_ai/app/utils/types.ts",
+            "path": "/home/raphy/dev/v1_ai/app/utils/types.ts",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": "export type AnswerType = Database[\"public\"][\"Tables\"][\"answers\"][\"Row\"];\nexport type AnswerInsertType = Database[\"public\"][\"Tables\"][\"answers\"][\"Insert\"];\nexport type AnswerUpdateType = Database[\"public\"][\"Tables\"][\"answers\"][\"Update\"];\n\nexport type ChoiceType = Database[\"public\"][\"Tables\"][\"choices\"][\"Row\"];\nexport type ChoiceInsertType = Database[\"public\"][\"Tables\"][\"choices\"][\"Insert\"];\nexport type ChoiceUpdateType = Database[\"public\"][\"Tables\"][\"choices\"][\"Update\"];\n\nexport type QuestionType = Database[\"public\"][\"Tables\"][\"questions\"][\"Row\"];\nexport type QuestionInsertType = Database[\"public\"][\"Tables\"][\"questions\"][\"Insert\"];\nexport type QuestionUpdateType = Database[\"public\"][\"Tables\"][\"questions\"][\"Update\"];\n\nexport type QuizsetType = Database[\"public\"][\"Tables\"][\"quizsets\"][\"Row\"];\nexport type QuizsetInsertType = Database[\"public\"][\"Tables\"][\"quizsets\"][\"Insert\"];\nexport type QuizsetUpdateType = Database[\"public\"][\"Tables\"][\"quizsets\"][\"Update\"];\n\nexport type UserType = Database[\"public\"][\"Tables\"][\"users\"][\"Row\"];\nexport type UserInsertType = Database[\"public\"][\"Tables\"][\"users\"][\"Insert\"];\nexport type UserUpdateType = Database[\"public\"][\"Tables\"][\"users\"][\"Update\"];\n```\n\nThese types correspond to the rows, inserts, and updates for each table in the ",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "$mid": 1,
+            "fsPath": "/home/raphy/dev/v1_ai/public/",
+            "external": "file:///home/raphy/dev/v1_ai/public/",
+            "path": "/home/raphy/dev/v1_ai/public/",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": " schema of your Supabase database.",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        }
+      ],
+      "responseId": "response_6f80c9af-d15e-4ca3-9e88-7c192826722e",
+      "isHidden": false,
+      "result": {
+        "timings": {
+          "firstProgress": 2980,
+          "totalElapsed": 17846
+        },
+        "metadata": {
+          "codeBlocks": [
+            {
+              "code": "export type AnswerType = Database[\"public\"][\"Tables\"][\"answers\"][\"Row\"];\nexport type AnswerInsertType = Database[\"public\"][\"Tables\"][\"answers\"][\"Insert\"];\nexport type AnswerUpdateType = Database[\"public\"][\"Tables\"][\"answers\"][\"Update\"];\n\nexport type ChoiceType = Database[\"public\"][\"Tables\"][\"choices\"][\"Row\"];\nexport type ChoiceInsertType = Database[\"public\"][\"Tables\"][\"choices\"][\"Insert\"];\nexport type ChoiceUpdateType = Database[\"public\"][\"Tables\"][\"choices\"][\"Update\"];\n\nexport type QuestionType = Database[\"public\"][\"Tables\"][\"questions\"][\"Row\"];\nexport type QuestionInsertType = Database[\"public\"][\"Tables\"][\"questions\"][\"Insert\"];\nexport type QuestionUpdateType = Database[\"public\"][\"Tables\"][\"questions\"][\"Update\"];\n\nexport type QuizsetType = Database[\"public\"][\"Tables\"][\"quizsets\"][\"Row\"];\nexport type QuizsetInsertType = Database[\"public\"][\"Tables\"][\"quizsets\"][\"Insert\"];\nexport type QuizsetUpdateType = Database[\"public\"][\"Tables\"][\"quizsets\"][\"Update\"];\n\nexport type UserType = Database[\"public\"][\"Tables\"][\"users\"][\"Row\"];\nexport type UserInsertType = Database[\"public\"][\"Tables\"][\"users\"][\"Insert\"];\nexport type UserUpdateType = Database[\"public\"][\"Tables\"][\"users\"][\"Update\"];\n",
+              "resource": {
+                "$mid": 1,
+                "path": "/home/raphy/dev/v1_ai/app/utils/types.ts",
+                "scheme": "file"
+              },
+              "language": "typescript",
+              "markdownBeforeBlock": "Here are all the types from `Database[\"public\"][\"Tables\"]` in the `supabase.ts` file:\n\n"
+            }
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "write all types from Database[public][tables] from supabase.ts file "
+            },
+            {
+              "role": "assistant",
+              "content": "Here are all the types from `Database[\"public\"][\"Tables\"]` in the `supabase.ts` file:\n\n```typescript\n// filepath: /home/raphy/dev/v1_ai/app/utils/types.ts\nexport type AnswerType = Database[\"public\"][\"Tables\"][\"answers\"][\"Row\"];\nexport type AnswerInsertType = Database[\"public\"][\"Tables\"][\"answers\"][\"Insert\"];\nexport type AnswerUpdateType = Database[\"public\"][\"Tables\"][\"answers\"][\"Update\"];\n\nexport type ChoiceType = Database[\"public\"][\"Tables\"][\"choices\"][\"Row\"];\nexport type ChoiceInsertType = Database[\"public\"][\"Tables\"][\"choices\"][\"Insert\"];\nexport type ChoiceUpdateType = Database[\"public\"][\"Tables\"][\"choices\"][\"Update\"];\n\nexport type QuestionType = Database[\"public\"][\"Tables\"][\"questions\"][\"Row\"];\nexport type QuestionInsertType = Database[\"public\"][\"Tables\"][\"questions\"][\"Insert\"];\nexport type QuestionUpdateType = Database[\"public\"][\"Tables\"][\"questions\"][\"Update\"];\n\nexport type QuizsetType = Database[\"public\"][\"Tables\"][\"quizsets\"][\"Row\"];\nexport type QuizsetInsertType = Database[\"public\"][\"Tables\"][\"quizsets\"][\"Insert\"];\nexport type QuizsetUpdateType = Database[\"public\"][\"Tables\"][\"quizsets\"][\"Update\"];\n\nexport type UserType = Database[\"public\"][\"Tables\"][\"users\"][\"Row\"];\nexport type UserInsertType = Database[\"public\"][\"Tables\"][\"users\"][\"Insert\"];\nexport type UserUpdateType = Database[\"public\"][\"Tables\"][\"users\"][\"Update\"];\n```\n\nThese types correspond to the rows, inserts, and updates for each table in the `public` schema of your Supabase database."
+            }
+          ],
+          "modelMessageId": "f4ceaaab-9340-4a70-af57-57d834f3ca70",
+          "responseId": "e9cd1aad-9adf-4d86-9b8f-6dc403464080",
+          "sessionId": "d3e05bd3-42f9-49a2-9fa7-903237183d5d",
+          "agentId": "github.copilot.default"
+        }
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.default",
+        "description": "Ask Copilot",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": true,
+          "helpTextPrefix": "You can ask me general programming questions, or chat with the following participants which have specialized expertise and can perform actions:",
+          "helpTextVariablesPrefix": "You can also help me understand your question by using the following variables to give me extra context:",
+          "helpTextPostfix": {
+            "value": "To have a great conversation, ask me questions as if I was a real programmer:\n\n* **Show me the code** you want to talk about by having the files open and selecting the most important lines.\n* **Make refinements** by asking me follow-up questions, adding clarifications, providing errors, etc.\n* **Review my suggested code** and tell me about issues or improvements, so I can iterate on it.\n\nYou can also ask me questions about your editor selection by [starting an inline chat session](command:inlineChat.start).\n\nLearn more about [GitHub Copilot](https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted) in [Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). Or explore the [Copilot walkthrough](command:github.copilot.open.walkthrough).",
+            "isTrusted": {
+              "enabledCommands": [
+                "inlineChat.start",
+                "github.copilot.open.walkthrough"
+              ]
+            },
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "uris": {
+              "command:inlineChat.start": {
+                "$mid": 1,
+                "path": "inlineChat.start",
+                "scheme": "command"
+              },
+              "https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted": {
+                "$mid": 1,
+                "path": "/copilot/using-github-copilot/getting-started-with-github-copilot",
+                "scheme": "https",
+                "authority": "docs.github.com",
+                "query": "tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted"
+              },
+              "https://code.visualstudio.com/docs/copilot/overview": {
+                "$mid": 1,
+                "path": "/docs/copilot/overview",
+                "scheme": "https",
+                "authority": "code.visualstudio.com"
+              },
+              "command:github.copilot.open.walkthrough": {
+                "$mid": 1,
+                "path": "github.copilot.open.walkthrough",
+                "scheme": "command"
+              }
+            }
+          },
+          "supportIssueReporting": false,
+          "supportsSlowVariables": true,
+          "requester": {
+            "name": "rafidoth",
+            "icon": {
+              "$mid": 1,
+              "path": "/u/67283985",
+              "scheme": "https",
+              "authority": "avatars.githubusercontent.com",
+              "query": "v=4"
+            }
+          }
+        },
+        "name": "GitHubCopilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "slashCommands": [],
+        "disambiguation": [
+          {
+            "category": "generate_code_sample",
+            "description": "The user wants to generate code snippets without referencing the contents of the current workspace. This category does not include generating entire projects.",
+            "examples": [
+              "Write an example of computing a SHA256 hash."
+            ]
+          },
+          {
+            "category": "question_about_specific_files",
+            "description": "The user has a question about a specific file or code snippet that they have provided as part of their query, and the question does not require additional workspace context to answer.",
+            "examples": [
+              "What does this file do?"
+            ]
+          }
+        ]
+      },
+      "contentReferences": [
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "/home/raphy/dev/v1_ai/app/utils/supabase.ts",
+            "external": "file:///home/raphy/dev/v1_ai/app/utils/supabase.ts",
+            "path": "/home/raphy/dev/v1_ai/app/utils/supabase.ts",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/v1_ai/app/utils/types.ts",
+              "external": "file:///home/raphy/dev/v1_ai/app/utils/types.ts",
+              "path": "/home/raphy/dev/v1_ai/app/utils/types.ts",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 24,
+              "endColumn": 1
+            }
+          }
+        }
+      ],
+      "codeCitations": [],
+      "timestamp": 1740044671767
+    }
+  ],
+  "sessionId": "074f93f1-2e70-4ff7-b8b1-39f20ae43850",
+  "creationDate": 1739866484789,
+  "isImported": false,
+  "lastMessageDate": 1740044852584,
+  "customTitle": "Fixing JSX return in map function",
+  "isNew": true
+}

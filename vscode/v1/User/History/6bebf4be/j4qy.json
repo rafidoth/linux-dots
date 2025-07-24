@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "moduleDetection": "force",
+    "module": "nodenext",
+    "rootDir": "src",
+    "moduleResolution": "nodenext",
+    "baseUrl": "./",
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "declarationMap": true,
+    "composite": true
+  },
+  "exclude": ["node_modules"]
+}

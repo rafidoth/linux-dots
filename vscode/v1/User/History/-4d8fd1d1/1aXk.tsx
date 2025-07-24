@@ -1,0 +1,82 @@
+"use client";
+import React from "react";
+import { cn } from "@/lib/utils";
+import { FaCaretUp, FaCaretDown } from "react-icons/fa";
+
+type Props = {};
+
+const nostyle =
+  "[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none";
+const tStyle = `border-none text-7xl bg-transparent display-inline w-full outline-none caret-transparent text-center ${nostyle}`;
+
+const validateHour = (hour: number) => {
+  return hour >= 0 && hour <= 23;
+};
+const validateMinute = (minute: number) => {
+  return minute >= 0 && minute <= 59;
+};
+
+function TimeSelection({}: Props) {
+  const [hour, setHour] = React.useState<number>(7);
+  const [minute, setMinute] = React.useState<number>(30);
+  return (
+    <div>
+      <div className="flex gap-2 border-none w-full">
+        <div className="flex w-1/2">
+          <input
+            type="number"
+            placeholder="00"
+            value={hour < 10 ? `0${hour}` : hour}
+            onChange={(e) =>
+              validateHour(parseInt(e.target.value)) &&
+              setHour(parseInt(e.target.value))
+            }
+            className={cn(tStyle)}
+          />
+          <div className="flex flex-col h-full">
+            <div
+              onClick={() => validateHour(hour + 1) && setHour(hour + 1)}
+              className="h-1/2 flex items-center hover:text-jigao cursor-pointer text-5xl"
+            >
+              <FaCaretUp width={50} height={50} />
+            </div>
+            <div
+              onClick={() => validateHour(hour - 1) && setHour(hour - 1)}
+              className="h-1/2 flex items-center hover:text-jigao cursor-pointer text-5xl"
+            >
+              <FaCaretDown />
+            </div>
+          </div>
+        </div>
+        <div className="w-1/2">
+          <input
+            type="number"
+            placeholder="00"
+            value={minute < 10 ? `0${minute}` : minute}
+            className={cn(tStyle)}
+            onChange={(e) =>
+              validateMinute(parseInt(e.target.value)) &&
+              setMinute(parseInt(e.target.value))
+            }
+          />
+          <div className="flex flex-col h-full">
+            <div
+              onClick={() => validateHour(hour + 1) && setHour(hour + 1)}
+              className="h-1/2 flex items-center hover:text-jigao cursor-pointer text-5xl"
+            >
+              <FaCaretUp width={50} height={50} />
+            </div>
+            <div
+              onClick={() => validateHour(hour - 1) && setHour(hour - 1)}
+              className="h-1/2 flex items-center hover:text-jigao cursor-pointer text-5xl"
+            >
+              <FaCaretDown />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default TimeSelection;

@@ -1,0 +1,83 @@
+import { AvalabilityType, InterestType, StudentInfoType } from "@/app/types";
+import { apiRequest, ApiRequestType } from "../apiClient";
+
+export async function sendSlotRequest(mId: string, slots: AvalabilityType[]) {
+  const req: ApiRequestType = {
+    endpoint: "api/student/mavailableat/request",
+    method: "POST",
+    body: {
+      mentorId: mId,
+      slots: slots,
+    },
+    auth: true,
+  };
+
+  const res = await apiRequest(req);
+  if (!res.success) {
+    throw new Error("Failed to send slot requests");
+  }
+  console.log(res);
+}
+
+export async function sendPaymentRequest(
+  sessionID: string,
+  availabilityID: string
+) {
+  const req: ApiRequestType = {
+    endpoint: `api/student/payment/${sessionID}`,
+    method: "POST",
+    body: {
+      AvailabilityID: availabilityID,
+    },
+    auth: true,
+  };
+
+  const res = await apiRequest(req);
+  if (!res.success) {
+    throw new Error("Failed to send payment request");
+  }
+  return res;
+}
+
+export async function updateInterestListStudent(interests: InterestType[]) {
+  const req: ApiRequestType = {
+    endpoint: "api/student/interests/list",
+    method: "POST",
+    body: {
+      interests: interests,
+    },
+    auth: true,
+  };
+
+  const res = await apiRequest(req);
+  if (!res.success) {
+    throw new Error("Failed to update interests");
+  }
+}
+
+export async function updateStudentProfile(
+  data: StudentInfoType,
+  imageFile: File
+) {
+  const req: ApiRequestType = {
+    endpoint: "api/student/myself",
+    method: "PUT",
+    body: {
+      name: data.name,
+      email: data.email,
+      username: data.username,
+      gender: data.gender,
+      grad_year: data.grad_year,
+      dob: data.dob.toISOString(),
+      password: data.password,
+      image: file | null,
+    },
+    auth: true,
+  };
+
+  const res = await apiRequest(req);
+  if (!res.success) {
+    throw new Error("Failed to update student profile");
+  }
+  return res;
+}

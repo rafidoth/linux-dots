@@ -1,0 +1,50 @@
+Copying all contents of one folder to another folder
+
+```
+cp -r /path/to/source/dir /path/to/destinition/dir
+```
+
+## GREP
+
+Content of Hello.txt
+
+```
+hello world !
+bangladesh is my country
+Bangla is my language.
+dhfajfdjhdfjahfdaf
+dhfajfdjhdfjahfdaf
+dhfajfdjhdfjahfdaf
+dhfajfdjhdfjahfdaf
+dhfajfdjhdfjahfdaf
+dhfajfdjhdfjahfdaf
+dhfajfdjhdfjahfdaf
+dhfajfdjhdfjahfdaf
+dhfajfdjhdfjahfdaf
+Bangladeshi people are my friends
+```
+
+## Search for "Bangla" in hello.txt
+
+```
+grep "Bangla" hello.txt
+```
+
+Output
+
+```
+Bangla is my language.
+Bangladeshi people are my friends
+```
+
+## I want to search "Bangla" as a whole word not part of another word.
+
+```
+grep -w "Bangla" hello.txt
+```
+
+Output
+
+```
+Bangla is my language.
+```

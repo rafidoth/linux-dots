@@ -1,0 +1,4011 @@
+{
+  "version": 3,
+  "requesterUsername": "rafidoth",
+  "requesterAvatarIconUri": {
+    "$mid": 1,
+    "path": "/u/67283985",
+    "scheme": "https",
+    "authority": "avatars.githubusercontent.com",
+    "query": "v=4"
+  },
+  "responderUsername": "GitHub Copilot",
+  "responderAvatarIconUri": {
+    "id": "copilot"
+  },
+  "initialLocation": "panel",
+  "requests": [
+    {
+      "requestId": "request_c06b3663-1566-488f-aa12-142b30ffcaf5",
+      "message": {
+        "text": "setup the select inputs with the calender",
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 41
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 42
+            },
+            "text": "setup the select inputs with the calender",
+            "kind": "text"
+          }
+        ]
+      },
+      "variableData": {
+        "variables": [
+          {
+            "id": "vscode.implicit.viewport",
+            "name": "file:DobPicker.tsx",
+            "value": {
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/ui/DobPicker.tsx",
+                "external": "file:///home/raphy/dev/ument/app/ui/DobPicker.tsx",
+                "path": "/home/raphy/dev/ument/app/ui/DobPicker.tsx",
+                "scheme": "file"
+              },
+              "range": {
+                "startLineNumber": 71,
+                "startColumn": 1,
+                "endLineNumber": 81,
+                "endColumn": 1
+              }
+            },
+            "isFile": true,
+            "isDynamic": true,
+            "modelDescription": "User's current visible code"
+          }
+        ]
+      },
+      "response": [
+        {
+          "content": {
+            "value": "Collecting workspace information",
+            "uris": {}
+          },
+          "kind": "progressTask",
+          "deferred": {
+            "p": {},
+            "d": {
+              "outcome": 0
+            }
+          },
+          "a": {
+            "z": 0,
+            "g": {
+              "threshold": 175,
+              "name": "14699",
+              "h": 0
+            }
+          },
+          "progress": []
+        },
+        {
+          "kind": "warning",
+          "content": {
+            "value": "Still building the workspace index, response may be less accurate.",
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "uris": {}
+          }
+        },
+        {
+          "value": "I'll help you set up the select inputs with the calendar component. Based on the code, you want to create a date of birth picker with year/month dropdowns and a calendar. Here's how to implement it:\n\n```tsx\n\"use client\";\nimport React from \"react\";\nimport { Calendar } from \"@/components/ui/calendar\";\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from \"@/components/ui/select\";\n\nconst monthMap = [\n  \"January\", \n  \"February\", \n  \"March\",\n  \"April\",\n  \"May\",\n  \"June\", \n  \"July\",\n  \"August\",\n  \"September\",\n  \"October\",\n  \"November\",\n  \"December\"\n] as const;\n\nfunction DobPicker() {\n  const startYear = 1990;\n  const [year, setYear] = React.useState<number>(2000);\n  const [month, setMonth] = React.useState<number>(1);\n  const [selectedDate, setSelectedDate] = React.useState<Date | undefined>(\n    new Date()\n  );\n\n  React.useEffect(() => {\n    setSelectedDate(new Date(year, month, 1));\n  }, [year, month]);\n\n  return (\n    <div className=\"flex justify-center\">\n      <div className=\"flex flex-col gap-y-4 p-3\">\n        <Select onValueChange={(value) => setYear(parseInt(value))}>\n          <SelectTrigger className=\"w-[180px] cursor-pointer\">\n            <SelectValue placeholder=\"Year\" />\n          </SelectTrigger>\n          <SelectContent>\n            {Array.from({ length: 25 }, (_, i) => (\n              <SelectItem key={i} value={(startYear + i).toString()}>\n                {startYear + i}\n              </SelectItem>\n            ))}\n          </SelectContent>\n        </Select>\n\n        <Select onValueChange={(value) => setMonth(parseInt(value))}>\n          <SelectTrigger className=\"w-[180px] cursor-pointer\">\n            <SelectValue placeholder=\"Month\" />\n          </SelectTrigger>\n          <SelectContent>\n            {Array.from({ length: 12 }, (_, i) => (\n              <SelectItem key={i} value={i.toString()}>\n                {monthMap[i]}\n              </SelectItem>\n            ))}\n          </SelectContent>\n        </Select>\n\n        <Calendar\n          mode=\"single\"\n          selected={selectedDate}\n          onSelect={(d) => {\n            setSelectedDate(d);\n          }}\n          disabled={(date) => date > new Date() || date < new Date(\"1900-01-01\")}\n          initialFocus\n          className=\"w-full\"\n        />\n      </div>\n    </div>\n  );\n}\n\nexport default DobPicker;\n```\n\nThis implementation:\n\n1. Uses two ",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "Select",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 548,
+                "startColumn": 10,
+                "endLineNumber": 548,
+                "endColumn": 10
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/.next/static/chunks/_cfd52745._.js",
+                "external": "file:///home/raphy/dev/ument/.next/static/chunks/_cfd52745._.js",
+                "path": "/home/raphy/dev/ument/.next/static/chunks/_cfd52745._.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "4495cdb4-7f79-4bbd-ad3a-816389faedde"
+        },
+        {
+          "value": " components for year and month selection\n2. Has a year range from 1990 to 2015 (25 years)\n3. Uses a ",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "monthMap",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 680,
+                "startColumn": 7,
+                "endLineNumber": 680,
+                "endColumn": 7
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__c4a22b59._.js",
+                "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/%5Broot%20of%20the%20server%5D__c4a22b59._.js",
+                "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__c4a22b59._.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "12044daa-f5e5-4013-a502-5cec51467112"
+        },
+        {
+          "value": " array to display month names\n4. Updates the calendar when year or month changes using ",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "useEffect",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 699,
+                "startColumn": 341,
+                "endLineNumber": 699,
+                "endColumn": 341
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__c4a22b59._.js",
+                "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/%5Broot%20of%20the%20server%5D__c4a22b59._.js",
+                "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__c4a22b59._.js",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "8cf576a3-7c1f-40dc-aa06-fbc78e95c919"
+        },
+        {
+          "value": "\n5. Uses the ",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "Calendar",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 3,
+                "startColumn": 10,
+                "endLineNumber": 3,
+                "endColumn": 10
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/ui/DobPicker.tsx",
+                "external": "file:///home/raphy/dev/ument/app/ui/DobPicker.tsx",
+                "path": "/home/raphy/dev/ument/app/ui/DobPicker.tsx",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "d6451006-4bf7-4d5a-a1db-e0267fb13076"
+        },
+        {
+          "value": " component for day selection\n6. Disables dates after today and before 1900\n7. Has all components styled and centered with proper spacing\n\nThe calendar and select inputs will work together - changing the year or month in the dropdowns will update the calendar view, and selecting a date in the calendar will update the selected date state.",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        }
+      ],
+      "responseId": "response_2023cbc6-0e26-42a6-9fb5-f01c63a0503a",
+      "result": {
+        "timings": {
+          "firstProgress": 187117,
+          "totalElapsed": 206456
+        },
+        "metadata": {
+          "codeBlocks": [
+            {
+              "code": "\"use client\";\nimport React from \"react\";\nimport { Calendar } from \"@/components/ui/calendar\";\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from \"@/components/ui/select\";\n\nconst monthMap = [\n  \"January\", \n  \"February\", \n  \"March\",\n  \"April\",\n  \"May\",\n  \"June\", \n  \"July\",\n  \"August\",\n  \"September\",\n  \"October\",\n  \"November\",\n  \"December\"\n] as const;\n\nfunction DobPicker() {\n  const startYear = 1990;\n  const [year, setYear] = React.useState<number>(2000);\n  const [month, setMonth] = React.useState<number>(1);\n  const [selectedDate, setSelectedDate] = React.useState<Date | undefined>(\n    new Date()\n  );\n\n  React.useEffect(() => {\n    setSelectedDate(new Date(year, month, 1));\n  }, [year, month]);\n\n  return (\n    <div className=\"flex justify-center\">\n      <div className=\"flex flex-col gap-y-4 p-3\">\n        <Select onValueChange={(value) => setYear(parseInt(value))}>\n          <SelectTrigger className=\"w-[180px] cursor-pointer\">\n            <SelectValue placeholder=\"Year\" />\n          </SelectTrigger>\n          <SelectContent>\n            {Array.from({ length: 25 }, (_, i) => (\n              <SelectItem key={i} value={(startYear + i).toString()}>\n                {startYear + i}\n              </SelectItem>\n            ))}\n          </SelectContent>\n        </Select>\n\n        <Select onValueChange={(value) => setMonth(parseInt(value))}>\n          <SelectTrigger className=\"w-[180px] cursor-pointer\">\n            <SelectValue placeholder=\"Month\" />\n          </SelectTrigger>\n          <SelectContent>\n            {Array.from({ length: 12 }, (_, i) => (\n              <SelectItem key={i} value={i.toString()}>\n                {monthMap[i]}\n              </SelectItem>\n            ))}\n          </SelectContent>\n        </Select>\n\n        <Calendar\n          mode=\"single\"\n          selected={selectedDate}\n          onSelect={(d) => {\n            setSelectedDate(d);\n          }}\n          disabled={(date) => date > new Date() || date < new Date(\"1900-01-01\")}\n          initialFocus\n          className=\"w-full\"\n        />\n      </div>\n    </div>\n  );\n}\n\nexport default DobPicker;\n",
+              "language": "tsx",
+              "markdownBeforeBlock": "I'll help you set up the select inputs with the calendar component. Based on the code, you want to create a date of birth picker with year/month dropdowns and a calendar. Here's how to implement it:\n\n"
+            }
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "setup the select inputs with the calender"
+            },
+            {
+              "role": "assistant",
+              "content": "I'll help you set up the select inputs with the calendar component. Based on the code, you want to create a date of birth picker with year/month dropdowns and a calendar. Here's how to implement it:\n\n```tsx\n\"use client\";\nimport React from \"react\";\nimport { Calendar } from \"@/components/ui/calendar\";\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from \"@/components/ui/select\";\n\nconst monthMap = [\n  \"January\", \n  \"February\", \n  \"March\",\n  \"April\",\n  \"May\",\n  \"June\", \n  \"July\",\n  \"August\",\n  \"September\",\n  \"October\",\n  \"November\",\n  \"December\"\n] as const;\n\nfunction DobPicker() {\n  const startYear = 1990;\n  const [year, setYear] = React.useState<number>(2000);\n  const [month, setMonth] = React.useState<number>(1);\n  const [selectedDate, setSelectedDate] = React.useState<Date | undefined>(\n    new Date()\n  );\n\n  React.useEffect(() => {\n    setSelectedDate(new Date(year, month, 1));\n  }, [year, month]);\n\n  return (\n    <div className=\"flex justify-center\">\n      <div className=\"flex flex-col gap-y-4 p-3\">\n        <Select onValueChange={(value) => setYear(parseInt(value))}>\n          <SelectTrigger className=\"w-[180px] cursor-pointer\">\n            <SelectValue placeholder=\"Year\" />\n          </SelectTrigger>\n          <SelectContent>\n            {Array.from({ length: 25 }, (_, i) => (\n              <SelectItem key={i} value={(startYear + i).toString()}>\n                {startYear + i}\n              </SelectItem>\n            ))}\n          </SelectContent>\n        </Select>\n\n        <Select onValueChange={(value) => setMonth(parseInt(value))}>\n          <SelectTrigger className=\"w-[180px] cursor-pointer\">\n            <SelectValue placeholder=\"Month\" />\n          </SelectTrigger>\n          <SelectContent>\n            {Array.from({ length: 12 }, (_, i) => (\n              <SelectItem key={i} value={i.toString()}>\n                {monthMap[i]}\n              </SelectItem>\n            ))}\n          </SelectContent>\n        </Select>\n\n        <Calendar\n          mode=\"single\"\n          selected={selectedDate}\n          onSelect={(d) => {\n            setSelectedDate(d);\n          }}\n          disabled={(date) => date > new Date() || date < new Date(\"1900-01-01\")}\n          initialFocus\n          className=\"w-full\"\n        />\n      </div>\n    </div>\n  );\n}\n\nexport default DobPicker;\n```\n\nThis implementation:\n\n1. Uses two `Select` components for year and month selection\n2. Has a year range from 1990 to 2015 (25 years)\n3. Uses a `monthMap` array to display month names\n4. Updates the calendar when year or month changes using `useEffect`\n5. Uses the `Calendar` component for day selection\n6. Disables dates after today and before 1900\n7. Has all components styled and centered with proper spacing\n\nThe calendar and select inputs will work together - changing the year or month in the dropdowns will update the calendar view, and selecting a date in the calendar will update the selected date state."
+            }
+          ],
+          "modelMessageId": "84bcdc75-8726-4089-ae05-adcdd89541f5",
+          "responseId": "65cd68c3-2879-4799-b395-3c9140e0fcdf",
+          "sessionId": "ddc3e90e-62c5-411f-a9c3-67292229efcc",
+          "agentId": "github.copilot.workspace"
+        }
+      },
+      "followups": [
+        {
+          "kind": "reply",
+          "agentId": "github.copilot.workspace",
+          "message": "How do I style the calendar?"
+        }
+      ],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.workspace",
+        "description": "Ask about your workspace",
+        "metadata": {
+          "sampleRequest": "How do I build this project?",
+          "themeIcon": {
+            "id": "code"
+          },
+          "hasFollowups": true,
+          "isSecondary": true,
+          "supportIssueReporting": false
+        },
+        "name": "workspace",
+        "fullName": "Workspace",
+        "locations": [
+          "panel"
+        ],
+        "slashCommands": [
+          {
+            "name": "explain",
+            "description": "Explain how the code in your active editor works"
+          },
+          {
+            "name": "tests",
+            "description": "Generate unit tests for the selected code",
+            "disambiguation": [
+              {
+                "category": "create_tests",
+                "description": "The user wants to generate unit tests.",
+                "examples": [
+                  "Generate tests for my selection using pytest."
+                ]
+              }
+            ]
+          },
+          {
+            "name": "fix",
+            "description": "Propose a fix for the problems in the selected code",
+            "sampleRequest": "There is a problem in this code. Rewrite the code to show it with the bug fixed."
+          },
+          {
+            "name": "new",
+            "description": "Scaffold code for a new file or project in a workspace",
+            "sampleRequest": "Create a RESTful API server using typescript",
+            "isSticky": true,
+            "disambiguation": [
+              {
+                "category": "create_new_workspace_or_extension",
+                "description": "The user wants to create a complete workspace from scratch in Visual Studio Code, such as a new application or Visual Studio Code extension. The user may have specified individual files that you should refer to. The user may have also provided previously used requests, which you can ignore if they are not relevant to the latest user request. Do not use this category to update an existing project or generate individual methods or files.",
+                "examples": [
+                  "Scaffold a Node server.",
+                  "Create a sample project which uses the fileSystemProvider API.",
+                  "New react application"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "newNotebook",
+            "description": "Create a new Jupyter Notebook",
+            "sampleRequest": "How do I create a notebook to load data from a csv file?",
+            "disambiguation": [
+              {
+                "category": "create_jupyter_notebook",
+                "description": "The user wants to create a new Jupyter notebook in Visual Studio Code.",
+                "examples": [
+                  "Create a notebook to analyze this CSV file."
+                ]
+              }
+            ]
+          },
+          {
+            "name": "fixTestFailure",
+            "description": "Propose a fix for the failing test",
+            "when": "config.github.copilot.chat.fixTestFailure.enabled"
+          },
+          {
+            "name": "setupTests",
+            "description": "Set up tests in your project (Experimental)",
+            "sampleRequest": "add playwright tests to my project",
+            "when": "config.github.copilot.chat.setupTests.enabled",
+            "disambiguation": [
+              {
+                "category": "set_up_tests",
+                "description": "The user wants to configure project test setup, framework, or test runner.",
+                "examples": [
+                  "Set up tests for this project."
+                ]
+              }
+            ]
+          }
+        ],
+        "disambiguation": [
+          {
+            "category": "workspace_project_questions",
+            "description": "The user wants to learn about or update the code or files in their current workspace. Questions in this category may be about understanding what the whole workspace does or locating the implementation of some code. This does not include generating or updating tests.",
+            "examples": [
+              "What does this project do?"
+            ]
+          },
+          {
+            "category": "generate_with_workspace_context",
+            "description": "The user wants to generate code based on multiple files in the workspace and did not specify which files to reference.",
+            "examples": [
+              "Create a README for this project."
+            ]
+          }
+        ]
+      },
+      "contentReferences": [
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__544eaec8._.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/%5Broot%20of%20the%20server%5D__544eaec8._.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__544eaec8._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 371,
+              "startColumn": 1,
+              "endLineNumber": 439,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__544eaec8._.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/%5Broot%20of%20the%20server%5D__544eaec8._.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__544eaec8._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 448,
+              "startColumn": 1,
+              "endLineNumber": 476,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__c4a22b59._.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/%5Broot%20of%20the%20server%5D__c4a22b59._.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__c4a22b59._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 371,
+              "startColumn": 1,
+              "endLineNumber": 439,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__c4a22b59._.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/%5Broot%20of%20the%20server%5D__c4a22b59._.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__c4a22b59._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 687,
+              "startColumn": 1,
+              "endLineNumber": 826,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 65,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 340,
+              "startColumn": 1,
+              "endLineNumber": 364,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 1317,
+              "startColumn": 3,
+              "endLineNumber": 1358,
+              "endColumn": 3
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 1697,
+              "startColumn": 3,
+              "endLineNumber": 1758,
+              "endColumn": 5
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 1763,
+              "startColumn": 5,
+              "endLineNumber": 1841,
+              "endColumn": 5
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 1890,
+              "startColumn": 1,
+              "endLineNumber": 1906,
+              "endColumn": 4
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 2256,
+              "startColumn": 7,
+              "endLineNumber": 2464,
+              "endColumn": 7
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/f8cf5_react-day-picker_dist_index_esm_1bd30ac0.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 2481,
+              "startColumn": 7,
+              "endLineNumber": 2645,
+              "endColumn": 10
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/node_modules__pnpm_fe121eaf._.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/node_modules__pnpm_fe121eaf._.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/node_modules__pnpm_fe121eaf._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 13877,
+              "startColumn": 31,
+              "endLineNumber": 13882,
+              "endColumn": 31
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/static/chunks/_73d6c59e._.js",
+              "external": "file:///home/raphy/dev/ument/.next/static/chunks/_73d6c59e._.js",
+              "path": "/home/raphy/dev/ument/.next/static/chunks/_73d6c59e._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 529,
+              "startColumn": 1,
+              "endLineNumber": 557,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/static/chunks/_cfd52745._.js",
+              "external": "file:///home/raphy/dev/ument/.next/static/chunks/_cfd52745._.js",
+              "path": "/home/raphy/dev/ument/.next/static/chunks/_cfd52745._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 542,
+              "startColumn": 1,
+              "endLineNumber": 661,
+              "endColumn": 57
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/static/chunks/_cfd52745._.js",
+              "external": "file:///home/raphy/dev/ument/.next/static/chunks/_cfd52745._.js",
+              "path": "/home/raphy/dev/ument/.next/static/chunks/_cfd52745._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 700,
+              "startColumn": 1,
+              "endLineNumber": 776,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/static/chunks/_cfd52745._.js",
+              "external": "file:///home/raphy/dev/ument/.next/static/chunks/_cfd52745._.js",
+              "path": "/home/raphy/dev/ument/.next/static/chunks/_cfd52745._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 794,
+              "startColumn": 1,
+              "endLineNumber": 940,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/static/chunks/58eea_@radix-ui_react-select_dist_index_mjs_0929d358._.js",
+              "external": "file:///home/raphy/dev/ument/.next/static/chunks/58eea_%40radix-ui_react-select_dist_index_mjs_0929d358._.js",
+              "path": "/home/raphy/dev/ument/.next/static/chunks/58eea_@radix-ui_react-select_dist_index_mjs_0929d358._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 33,
+              "startColumn": 1,
+              "endLineNumber": 44,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/static/chunks/58eea_@radix-ui_react-select_dist_index_mjs_0929d358._.js",
+              "external": "file:///home/raphy/dev/ument/.next/static/chunks/58eea_%40radix-ui_react-select_dist_index_mjs_0929d358._.js",
+              "path": "/home/raphy/dev/ument/.next/static/chunks/58eea_@radix-ui_react-select_dist_index_mjs_0929d358._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 111,
+              "startColumn": 1,
+              "endLineNumber": 116,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/static/chunks/58eea_@radix-ui_react-select_dist_index_mjs_0929d358._.js",
+              "external": "file:///home/raphy/dev/ument/.next/static/chunks/58eea_%40radix-ui_react-select_dist_index_mjs_0929d358._.js",
+              "path": "/home/raphy/dev/ument/.next/static/chunks/58eea_@radix-ui_react-select_dist_index_mjs_0929d358._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 482,
+              "startColumn": 1,
+              "endLineNumber": 510,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/static/chunks/58eea_@radix-ui_react-select_dist_index_mjs_0929d358._.js",
+              "external": "file:///home/raphy/dev/ument/.next/static/chunks/58eea_%40radix-ui_react-select_dist_index_mjs_0929d358._.js",
+              "path": "/home/raphy/dev/ument/.next/static/chunks/58eea_@radix-ui_react-select_dist_index_mjs_0929d358._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 812,
+              "startColumn": 1,
+              "endLineNumber": 835,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "external": "file:///home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "path": "/home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 65,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "external": "file:///home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "path": "/home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 338,
+              "startColumn": 1,
+              "endLineNumber": 503,
+              "endColumn": 2
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "external": "file:///home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "path": "/home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 1283,
+              "startColumn": 1,
+              "endLineNumber": 1319,
+              "endColumn": 3
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "external": "file:///home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "path": "/home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 1325,
+              "startColumn": 3,
+              "endLineNumber": 1358,
+              "endColumn": 3
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "external": "file:///home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "path": "/home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 1760,
+              "startColumn": 5,
+              "endLineNumber": 1940,
+              "endColumn": 5
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "external": "file:///home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "path": "/home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 2258,
+              "startColumn": 7,
+              "endLineNumber": 2453,
+              "endColumn": 7
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "external": "file:///home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "path": "/home/raphy/dev/ument/.next/static/chunks/f8cf5_react-day-picker_dist_index_esm_3950bc05.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 2491,
+              "startColumn": 4,
+              "endLineNumber": 2652,
+              "endColumn": 75
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "/home/raphy/dev/ument/app/ui/DobPicker.tsx",
+            "external": "file:///home/raphy/dev/ument/app/ui/DobPicker.tsx",
+            "path": "/home/raphy/dev/ument/app/ui/DobPicker.tsx",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "/home/raphy/dev/ument/components/ui/calendar.tsx",
+            "external": "file:///home/raphy/dev/ument/components/ui/calendar.tsx",
+            "path": "/home/raphy/dev/ument/components/ui/calendar.tsx",
+            "scheme": "file"
+          }
+        }
+      ],
+      "codeCitations": [],
+      "timestamp": 1741597167757
+    },
+    {
+      "requestId": "request_5dce5bd6-8144-4c3e-9b20-d15ed6229607",
+      "message": {
+        "text": "what is the issue in this file?",
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 31
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 32
+            },
+            "text": "what is the issue in this file?",
+            "kind": "text"
+          }
+        ]
+      },
+      "variableData": {
+        "variables": [
+          {
+            "id": "vscode.implicit.viewport",
+            "name": "file:StudentDataContext.tsx",
+            "value": {
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/contexts/StudentDataContext.tsx",
+                "external": "file:///home/raphy/dev/ument/app/contexts/StudentDataContext.tsx",
+                "path": "/home/raphy/dev/ument/app/contexts/StudentDataContext.tsx",
+                "scheme": "file"
+              },
+              "range": {
+                "startLineNumber": 21,
+                "startColumn": 1,
+                "endLineNumber": 41,
+                "endColumn": 5
+              }
+            },
+            "isFile": true,
+            "isDynamic": true,
+            "modelDescription": "User's current visible code"
+          }
+        ]
+      },
+      "response": [
+        {
+          "value": "Let's analyze the issues step by step:\n\n1. **Issue Identification**\nThe main issue is the ",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "updateStudentInfo",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 28,
+                "startColumn": 9,
+                "endLineNumber": 28,
+                "endColumn": 9
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/contexts/StudentDataContext.tsx",
+                "external": "file:///home/raphy/dev/ument/app/contexts/StudentDataContext.tsx",
+                "path": "/home/raphy/dev/ument/app/contexts/StudentDataContext.tsx",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "da08fb26-4b4a-41ce-a6cc-1f260eb60fe5"
+        },
+        {
+          "value": " function is defined but not included in the context provider's value prop.\n\n2. **Impact**\n- Components consuming this context won't be able to access ",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "updateStudentInfo",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 28,
+                "startColumn": 9,
+                "endLineNumber": 28,
+                "endColumn": 9
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/contexts/StudentDataContext.tsx",
+                "external": "file:///home/raphy/dev/ument/app/contexts/StudentDataContext.tsx",
+                "path": "/home/raphy/dev/ument/app/contexts/StudentDataContext.tsx",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "5d4daade-4dfd-486c-9566-5e50be3c943b"
+        },
+        {
+          "value": "\n- This creates a mismatch between available functionality and exposed API\n\n3. **Solution Steps**\n- Add ",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "updateStudentInfo",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 28,
+                "startColumn": 9,
+                "endLineNumber": 28,
+                "endColumn": 9
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/contexts/StudentDataContext.tsx",
+                "external": "file:///home/raphy/dev/ument/app/contexts/StudentDataContext.tsx",
+                "path": "/home/raphy/dev/ument/app/contexts/StudentDataContext.tsx",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "e160757f-4198-4683-8794-7b1c2e3fc99c"
+        },
+        {
+          "value": " to the context provider's value prop\n\nHere's the fix:\n\n```tsx\n",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        },
+        {
+          "kind": "codeblockUri",
+          "uri": {
+            "$mid": 1,
+            "external": "file:///home/raphy/dev/ument/app/contexts/StudentDataContext.tsx",
+            "path": "/home/raphy/dev/ument/app/contexts/StudentDataContext.tsx",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": "// ...existing code...\n  return (\n    <StudentDataContext.Provider\n      value={{ studentData, updateStudentInterests, updateStudentInfo }}\n    >\n      {children}\n    </StudentDataContext.Provider>\n  );\n// ...existing code...\n```\n\nThis ensures both update functions are available to consuming components.",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        }
+      ],
+      "responseId": "response_db9996ea-72ed-451f-b641-3c703b4b8e4d",
+      "result": {
+        "timings": {
+          "firstProgress": 3887,
+          "totalElapsed": 5371
+        },
+        "metadata": {
+          "codeBlocks": [
+            {
+              "code": "// ...existing code...\n  return (\n    <StudentDataContext.Provider\n      value={{ studentData, updateStudentInterests, updateStudentInfo }}\n    >\n      {children}\n    </StudentDataContext.Provider>\n  );\n// ...existing code...\n",
+              "resource": {
+                "$mid": 1,
+                "path": "/home/raphy/dev/ument/app/contexts/StudentDataContext.tsx",
+                "scheme": "file"
+              },
+              "language": "tsx",
+              "markdownBeforeBlock": "Let's analyze the issues step by step:\n\n1. **Issue Identification**\nThe main issue is the `updateStudentInfo` function is defined but not included in the context provider's value prop.\n\n2. **Impact**\n- Components consuming this context won't be able to access `updateStudentInfo`\n- This creates a mismatch between available functionality and exposed API\n\n3. **Solution Steps**\n- Add `updateStudentInfo` to the context provider's value prop\n\nHere's the fix:\n\n"
+            }
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "what is the issue in this file?"
+            },
+            {
+              "role": "assistant",
+              "content": "Let's analyze the issues step by step:\n\n1. **Issue Identification**\nThe main issue is the `updateStudentInfo` function is defined but not included in the context provider's value prop.\n\n2. **Impact**\n- Components consuming this context won't be able to access `updateStudentInfo`\n- This creates a mismatch between available functionality and exposed API\n\n3. **Solution Steps**\n- Add `updateStudentInfo` to the context provider's value prop\n\nHere's the fix:\n\n```tsx\n// filepath: /home/raphy/dev/ument/app/contexts/StudentDataContext.tsx\n// ...existing code...\n  return (\n    <StudentDataContext.Provider\n      value={{ studentData, updateStudentInterests, updateStudentInfo }}\n    >\n      {children}\n    </StudentDataContext.Provider>\n  );\n// ...existing code...\n```\n\nThis ensures both update functions are available to consuming components."
+            }
+          ],
+          "modelMessageId": "bfca9370-a4de-44d6-a26e-ceab5a78a6b7",
+          "responseId": "cb04841e-79a7-45a5-b581-71987b523280",
+          "sessionId": "9f68089a-125a-432d-b893-c11997de9299",
+          "agentId": "github.copilot.default"
+        }
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.default",
+        "description": "Ask Copilot",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": true,
+          "helpTextPrefix": "You can ask me general programming questions, or chat with the following participants which have specialized expertise and can perform actions:",
+          "helpTextVariablesPrefix": "You can also help me understand your question by using the following variables to give me extra context:",
+          "helpTextPostfix": {
+            "value": "To have a great conversation, ask me questions as if I was a real programmer:\n\n* **Show me the code** you want to talk about by having the files open and selecting the most important lines.\n* **Make refinements** by asking me follow-up questions, adding clarifications, providing errors, etc.\n* **Review my suggested code** and tell me about issues or improvements, so I can iterate on it.\n\nYou can also ask me questions about your editor selection by [starting an inline chat session](command:inlineChat.start).\n\nLearn more about [GitHub Copilot](https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted) in [Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). Or explore the [Copilot walkthrough](command:github.copilot.open.walkthrough).",
+            "isTrusted": {
+              "enabledCommands": [
+                "inlineChat.start",
+                "github.copilot.open.walkthrough"
+              ]
+            },
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "uris": {
+              "command:inlineChat.start": {
+                "$mid": 1,
+                "path": "inlineChat.start",
+                "scheme": "command"
+              },
+              "https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted": {
+                "$mid": 1,
+                "path": "/copilot/using-github-copilot/getting-started-with-github-copilot",
+                "scheme": "https",
+                "authority": "docs.github.com",
+                "query": "tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted"
+              },
+              "https://code.visualstudio.com/docs/copilot/overview": {
+                "$mid": 1,
+                "path": "/docs/copilot/overview",
+                "scheme": "https",
+                "authority": "code.visualstudio.com"
+              },
+              "command:github.copilot.open.walkthrough": {
+                "$mid": 1,
+                "path": "github.copilot.open.walkthrough",
+                "scheme": "command"
+              }
+            }
+          },
+          "supportIssueReporting": false,
+          "supportsSlowVariables": true,
+          "requester": {
+            "name": "rafidoth",
+            "icon": {
+              "$mid": 1,
+              "path": "/u/67283985",
+              "scheme": "https",
+              "authority": "avatars.githubusercontent.com",
+              "query": "v=4"
+            }
+          }
+        },
+        "name": "GitHubCopilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "slashCommands": [],
+        "disambiguation": [
+          {
+            "category": "generate_code_sample",
+            "description": "The user wants to generate code snippets without referencing the contents of the current workspace. This category does not include generating entire projects.",
+            "examples": [
+              "Write an example of computing a SHA256 hash."
+            ]
+          },
+          {
+            "category": "question_about_specific_files",
+            "description": "The user has a question about a specific file or code snippet that they have provided as part of their query, and the question does not require additional workspace context to answer.",
+            "examples": [
+              "What does this file do?"
+            ]
+          }
+        ]
+      },
+      "contentReferences": [
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/app/contexts/StudentDataContext.tsx",
+              "external": "file:///home/raphy/dev/ument/app/contexts/StudentDataContext.tsx",
+              "path": "/home/raphy/dev/ument/app/contexts/StudentDataContext.tsx",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 21,
+              "startColumn": 1,
+              "endLineNumber": 41,
+              "endColumn": 5
+            }
+          }
+        }
+      ],
+      "codeCitations": [],
+      "timestamp": 1742132868185
+    },
+    {
+      "requestId": "request_02adf5d7-81a2-4a44-9281-6e89452f0dc1",
+      "message": {
+        "text": "keyboad",
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 7
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 8
+            },
+            "text": "keyboad",
+            "kind": "text"
+          }
+        ]
+      },
+      "variableData": {
+        "variables": []
+      },
+      "response": [
+        {
+          "value": "It seems like you meant to type \"keyboard.\" Could you clarify your request? Are you asking about handling keyboard events in your code, or something else related to a keyboard?",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        }
+      ],
+      "responseId": "response_09f633bc-8823-408d-96ba-d8ca0fccc7a9",
+      "result": {
+        "timings": {
+          "firstProgress": 1014,
+          "totalElapsed": 1020
+        },
+        "metadata": {
+          "codeBlocks": [],
+          "messages": [
+            {
+              "role": "user",
+              "content": "keyboad"
+            },
+            {
+              "role": "assistant",
+              "content": "It seems like you meant to type \"keyboard.\" Could you clarify your request? Are you asking about handling keyboard events in your code, or something else related to a keyboard?"
+            }
+          ],
+          "modelMessageId": "54cb0463-3e52-4750-9593-567e4cc72c54",
+          "responseId": "e4d6ae36-db35-43c1-b833-4b93b9103516",
+          "sessionId": "9f68089a-125a-432d-b893-c11997de9299",
+          "agentId": "github.copilot.default"
+        }
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.default",
+        "description": "Ask Copilot",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": true,
+          "helpTextPrefix": "You can ask me general programming questions, or chat with the following participants which have specialized expertise and can perform actions:",
+          "helpTextVariablesPrefix": "You can also help me understand your question by using the following variables to give me extra context:",
+          "helpTextPostfix": {
+            "value": "To have a great conversation, ask me questions as if I was a real programmer:\n\n* **Show me the code** you want to talk about by having the files open and selecting the most important lines.\n* **Make refinements** by asking me follow-up questions, adding clarifications, providing errors, etc.\n* **Review my suggested code** and tell me about issues or improvements, so I can iterate on it.\n\nYou can also ask me questions about your editor selection by [starting an inline chat session](command:inlineChat.start).\n\nLearn more about [GitHub Copilot](https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted) in [Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). Or explore the [Copilot walkthrough](command:github.copilot.open.walkthrough).",
+            "isTrusted": {
+              "enabledCommands": [
+                "inlineChat.start",
+                "github.copilot.open.walkthrough"
+              ]
+            },
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "uris": {
+              "command:inlineChat.start": {
+                "$mid": 1,
+                "path": "inlineChat.start",
+                "scheme": "command"
+              },
+              "https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted": {
+                "$mid": 1,
+                "path": "/copilot/using-github-copilot/getting-started-with-github-copilot",
+                "scheme": "https",
+                "authority": "docs.github.com",
+                "query": "tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted"
+              },
+              "https://code.visualstudio.com/docs/copilot/overview": {
+                "$mid": 1,
+                "path": "/docs/copilot/overview",
+                "scheme": "https",
+                "authority": "code.visualstudio.com"
+              },
+              "command:github.copilot.open.walkthrough": {
+                "$mid": 1,
+                "path": "github.copilot.open.walkthrough",
+                "scheme": "command"
+              }
+            }
+          },
+          "supportIssueReporting": false,
+          "supportsSlowVariables": true,
+          "requester": {
+            "name": "rafidoth",
+            "icon": {
+              "$mid": 1,
+              "path": "/u/67283985",
+              "scheme": "https",
+              "authority": "avatars.githubusercontent.com",
+              "query": "v=4"
+            }
+          }
+        },
+        "name": "GitHubCopilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "slashCommands": [],
+        "disambiguation": [
+          {
+            "category": "generate_code_sample",
+            "description": "The user wants to generate code snippets without referencing the contents of the current workspace. This category does not include generating entire projects.",
+            "examples": [
+              "Write an example of computing a SHA256 hash."
+            ]
+          },
+          {
+            "category": "question_about_specific_files",
+            "description": "The user has a question about a specific file or code snippet that they have provided as part of their query, and the question does not require additional workspace context to answer.",
+            "examples": [
+              "What does this file do?"
+            ]
+          }
+        ]
+      },
+      "contentReferences": [],
+      "codeCitations": [],
+      "timestamp": 1742146863706
+    },
+    {
+      "requestId": "request_6814dfe3-93e5-4a15-bc80-58f27fa7f803",
+      "message": {
+        "text": "complete the MySessions in mentor route. sessions cards should be there according to the fetched session data and also there should be a option to create new session",
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 165
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 166
+            },
+            "text": "complete the MySessions in mentor route. sessions cards should be there according to the fetched session data and also there should be a option to create new session",
+            "kind": "text"
+          }
+        ]
+      },
+      "variableData": {
+        "variables": [
+          {
+            "id": "copilot_codebase",
+            "name": "Codebase",
+            "fullName": "Codebase",
+            "icon": {
+              "id": "folder"
+            },
+            "isTool": true
+          },
+          {
+            "id": "vscode.implicit.viewport",
+            "name": "file:page.tsx",
+            "value": {
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/(mentor)/m/mysessions/page.tsx",
+                "external": "file:///home/raphy/dev/ument/app/%28mentor%29/m/mysessions/page.tsx",
+                "path": "/home/raphy/dev/ument/app/(mentor)/m/mysessions/page.tsx",
+                "scheme": "file"
+              },
+              "range": {
+                "startLineNumber": 1,
+                "startColumn": 1,
+                "endLineNumber": 26,
+                "endColumn": 27
+              }
+            },
+            "isFile": true,
+            "isDynamic": true,
+            "modelDescription": "User's current visible code"
+          }
+        ]
+      },
+      "response": [
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": "Searching codebase for \"complete the MySessions component in mentor route with session cards and an option to create a new session\"",
+          "isConfirmed": true,
+          "isComplete": true
+        },
+        {
+          "value": "### Plan\n1. Add a \"Create Session\" button at the top\n2. Display session details properly in SessionCard\n3. Update SessionCard to show session info instead of \"no upcoming sessions\"\n\n### Implementation\n\n```tsx\n",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        },
+        {
+          "kind": "codeblockUri",
+          "uri": {
+            "$mid": 1,
+            "external": "file:///app/%28mentor%29/m/mysessions/page.tsx",
+            "path": "/app/(mentor)/m/mysessions/page.tsx",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": "import { getSessionsMentor } from \"@/app/lib/fetchers/sessions\";\nimport SessionCard from \"@/app/ui/SessionCard\";\nimport { jakarta } from \"@/app/utils/font\";\nimport { Button } from \"@/components/ui/button\";\nimport Link from \"next/link\";\nimport React from \"react\";\n\nconst MySessions = async () => {\n  const sessions = await getSessionsMentor();\n\n  return (\n    <div className=\"p-5 flex flex-col\">\n      <div className=\"flex justify-between items-center m-5\">\n        <span className={`${jakarta.className} font-black text-4xl`}>\n          My Sessions\n        </span>\n        <Link href=\"/m/newsession\">\n          <Button>Create New Session</Button>\n        </Link>\n      </div>\n      <div className=\"flex flex-wrap gap-5\">\n        {sessions.length === 0 ? (\n          <p className=\"text-muted-foreground\">No sessions created yet</p>\n        ) : (\n          sessions.map((session) => (\n            <SessionCard key={session.sessionId} sessionDetails={session} />\n          ))\n        )}\n      </div>\n    </div>\n  );\n};\n\nexport default MySessions;\n```\n\n```tsx\n",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        },
+        {
+          "kind": "codeblockUri",
+          "uri": {
+            "$mid": 1,
+            "external": "file:///app/ui/SessionCard.tsx",
+            "path": "/app/ui/SessionCard.tsx",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": "import React from \"react\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from \"@/components/ui/card\";\nimport { Button } from \"@/components/ui/button\";\nimport { SessionInfoType } from \"../types\";\nimport { Clock, Banknote } from \"lucide-react\";\n\ntype Props = {\n  sessionDetails: SessionInfoType;\n};\n\nconst SessionCard = ({ sessionDetails }: Props) => {\n  return (\n    <Card className=\"w-[350px] my-5\">\n      <CardHeader>\n        <CardTitle className=\"text-xl\">{sessionDetails.title}</CardTitle>\n      </CardHeader>\n      <CardContent className=\"space-y-4\">\n        <div className=\"flex items-center gap-2\">\n          <Clock className=\"w-4 h-4\" />\n          <span className=\"text-sm\">{sessionDetails.DurationInMinutes} minutes</span>\n        </div>\n        <div className=\"flex items-center gap-2\">\n          <Banknote className=\"w-4 h-4\" />\n          <span className=\"text-sm\">৳{sessionDetails.Price}</span>\n        </div>\n        <div className=\"flex gap-2\">\n          {sessionDetails.session_medium.map((medium) => (\n            <span key={medium} className=\"text-xs bg-secondary px-2 py-1 rounded\">\n              {medium}\n            </span>\n          ))}\n        </div>\n        <CardDescription className=\"whitespace-pre-line\">\n          {sessionDetails.Description}\n        </CardDescription>\n      </CardContent>\n      <CardFooter className=\"flex gap-2\">\n        <Button variant=\"outline\" size=\"sm\">Edit</Button>\n        <Button variant=\"destructive\" size=\"sm\">Delete</Button>\n      </CardFooter>\n    </Card>\n  );\n};\n\nexport default SessionCard;\n```\n\nThis implementation:\n- Adds a \"Create New Session\" button\n- Shows \"No sessions\" message when empty\n- Displays complete session details in cards\n- Includes edit/delete actions per session\n- Uses icons for better visual representation\n- Properly formats description and medium tags",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        }
+      ],
+      "responseId": "response_cc5761d8-e1ba-42fe-8279-f7d99a093ade",
+      "result": {
+        "timings": {
+          "firstProgress": 42325,
+          "totalElapsed": 58560
+        },
+        "metadata": {
+          "codeBlocks": [
+            {
+              "code": "import { getSessionsMentor } from \"@/app/lib/fetchers/sessions\";\nimport SessionCard from \"@/app/ui/SessionCard\";\nimport { jakarta } from \"@/app/utils/font\";\nimport { Button } from \"@/components/ui/button\";\nimport Link from \"next/link\";\nimport React from \"react\";\n\nconst MySessions = async () => {\n  const sessions = await getSessionsMentor();\n\n  return (\n    <div className=\"p-5 flex flex-col\">\n      <div className=\"flex justify-between items-center m-5\">\n        <span className={`${jakarta.className} font-black text-4xl`}>\n          My Sessions\n        </span>\n        <Link href=\"/m/newsession\">\n          <Button>Create New Session</Button>\n        </Link>\n      </div>\n      <div className=\"flex flex-wrap gap-5\">\n        {sessions.length === 0 ? (\n          <p className=\"text-muted-foreground\">No sessions created yet</p>\n        ) : (\n          sessions.map((session) => (\n            <SessionCard key={session.sessionId} sessionDetails={session} />\n          ))\n        )}\n      </div>\n    </div>\n  );\n};\n\nexport default MySessions;\n",
+              "resource": {
+                "$mid": 1,
+                "path": "/app/(mentor)/m/mysessions/page.tsx",
+                "scheme": "file"
+              },
+              "language": "tsx",
+              "markdownBeforeBlock": "### Plan\n1. Add a \"Create Session\" button at the top\n2. Display session details properly in SessionCard\n3. Update SessionCard to show session info instead of \"no upcoming sessions\"\n\n### Implementation\n\n"
+            },
+            {
+              "code": "import React from \"react\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from \"@/components/ui/card\";\nimport { Button } from \"@/components/ui/button\";\nimport { SessionInfoType } from \"../types\";\nimport { Clock, Banknote } from \"lucide-react\";\n\ntype Props = {\n  sessionDetails: SessionInfoType;\n};\n\nconst SessionCard = ({ sessionDetails }: Props) => {\n  return (\n    <Card className=\"w-[350px] my-5\">\n      <CardHeader>\n        <CardTitle className=\"text-xl\">{sessionDetails.title}</CardTitle>\n      </CardHeader>\n      <CardContent className=\"space-y-4\">\n        <div className=\"flex items-center gap-2\">\n          <Clock className=\"w-4 h-4\" />\n          <span className=\"text-sm\">{sessionDetails.DurationInMinutes} minutes</span>\n        </div>\n        <div className=\"flex items-center gap-2\">\n          <Banknote className=\"w-4 h-4\" />\n          <span className=\"text-sm\">৳{sessionDetails.Price}</span>\n        </div>\n        <div className=\"flex gap-2\">\n          {sessionDetails.session_medium.map((medium) => (\n            <span key={medium} className=\"text-xs bg-secondary px-2 py-1 rounded\">\n              {medium}\n            </span>\n          ))}\n        </div>\n        <CardDescription className=\"whitespace-pre-line\">\n          {sessionDetails.Description}\n        </CardDescription>\n      </CardContent>\n      <CardFooter className=\"flex gap-2\">\n        <Button variant=\"outline\" size=\"sm\">Edit</Button>\n        <Button variant=\"destructive\" size=\"sm\">Delete</Button>\n      </CardFooter>\n    </Card>\n  );\n};\n\nexport default SessionCard;\n",
+              "resource": {
+                "$mid": 1,
+                "path": "/app/ui/SessionCard.tsx",
+                "scheme": "file"
+              },
+              "language": "tsx",
+              "markdownBeforeBlock": "\n"
+            }
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "complete the MySessions in mentor route. sessions cards should be there according to the fetched session data and also there should be a option to create new session"
+            },
+            {
+              "role": "assistant",
+              "content": "### Plan\n1. Add a \"Create Session\" button at the top\n2. Display session details properly in SessionCard\n3. Update SessionCard to show session info instead of \"no upcoming sessions\"\n\n### Implementation\n\n```tsx\n// filepath: /app/(mentor)/m/mysessions/page.tsx\nimport { getSessionsMentor } from \"@/app/lib/fetchers/sessions\";\nimport SessionCard from \"@/app/ui/SessionCard\";\nimport { jakarta } from \"@/app/utils/font\";\nimport { Button } from \"@/components/ui/button\";\nimport Link from \"next/link\";\nimport React from \"react\";\n\nconst MySessions = async () => {\n  const sessions = await getSessionsMentor();\n\n  return (\n    <div className=\"p-5 flex flex-col\">\n      <div className=\"flex justify-between items-center m-5\">\n        <span className={`${jakarta.className} font-black text-4xl`}>\n          My Sessions\n        </span>\n        <Link href=\"/m/newsession\">\n          <Button>Create New Session</Button>\n        </Link>\n      </div>\n      <div className=\"flex flex-wrap gap-5\">\n        {sessions.length === 0 ? (\n          <p className=\"text-muted-foreground\">No sessions created yet</p>\n        ) : (\n          sessions.map((session) => (\n            <SessionCard key={session.sessionId} sessionDetails={session} />\n          ))\n        )}\n      </div>\n    </div>\n  );\n};\n\nexport default MySessions;\n```\n\n```tsx\n// filepath: /app/ui/SessionCard.tsx\nimport React from \"react\";\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from \"@/components/ui/card\";\nimport { Button } from \"@/components/ui/button\";\nimport { SessionInfoType } from \"../types\";\nimport { Clock, Banknote } from \"lucide-react\";\n\ntype Props = {\n  sessionDetails: SessionInfoType;\n};\n\nconst SessionCard = ({ sessionDetails }: Props) => {\n  return (\n    <Card className=\"w-[350px] my-5\">\n      <CardHeader>\n        <CardTitle className=\"text-xl\">{sessionDetails.title}</CardTitle>\n      </CardHeader>\n      <CardContent className=\"space-y-4\">\n        <div className=\"flex items-center gap-2\">\n          <Clock className=\"w-4 h-4\" />\n          <span className=\"text-sm\">{sessionDetails.DurationInMinutes} minutes</span>\n        </div>\n        <div className=\"flex items-center gap-2\">\n          <Banknote className=\"w-4 h-4\" />\n          <span className=\"text-sm\">৳{sessionDetails.Price}</span>\n        </div>\n        <div className=\"flex gap-2\">\n          {sessionDetails.session_medium.map((medium) => (\n            <span key={medium} className=\"text-xs bg-secondary px-2 py-1 rounded\">\n              {medium}\n            </span>\n          ))}\n        </div>\n        <CardDescription className=\"whitespace-pre-line\">\n          {sessionDetails.Description}\n        </CardDescription>\n      </CardContent>\n      <CardFooter className=\"flex gap-2\">\n        <Button variant=\"outline\" size=\"sm\">Edit</Button>\n        <Button variant=\"destructive\" size=\"sm\">Delete</Button>\n      </CardFooter>\n    </Card>\n  );\n};\n\nexport default SessionCard;\n```\n\nThis implementation:\n- Adds a \"Create New Session\" button\n- Shows \"No sessions\" message when empty\n- Displays complete session details in cards\n- Includes edit/delete actions per session\n- Uses icons for better visual representation\n- Properly formats description and medium tags"
+            }
+          ],
+          "modelMessageId": "ba26cfbf-295d-4ef2-95f5-5d67587ee3fc",
+          "responseId": "a7c35578-2ffd-4cf2-a511-93e9ba40870d",
+          "sessionId": "9f68089a-125a-432d-b893-c11997de9299",
+          "agentId": "github.copilot.default"
+        }
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.default",
+        "description": "Ask Copilot",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": true,
+          "helpTextPrefix": "You can ask me general programming questions, or chat with the following participants which have specialized expertise and can perform actions:",
+          "helpTextVariablesPrefix": "You can also help me understand your question by using the following variables to give me extra context:",
+          "helpTextPostfix": {
+            "value": "To have a great conversation, ask me questions as if I was a real programmer:\n\n* **Show me the code** you want to talk about by having the files open and selecting the most important lines.\n* **Make refinements** by asking me follow-up questions, adding clarifications, providing errors, etc.\n* **Review my suggested code** and tell me about issues or improvements, so I can iterate on it.\n\nYou can also ask me questions about your editor selection by [starting an inline chat session](command:inlineChat.start).\n\nLearn more about [GitHub Copilot](https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted) in [Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). Or explore the [Copilot walkthrough](command:github.copilot.open.walkthrough).",
+            "isTrusted": {
+              "enabledCommands": [
+                "inlineChat.start",
+                "github.copilot.open.walkthrough"
+              ]
+            },
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "uris": {
+              "command:inlineChat.start": {
+                "$mid": 1,
+                "path": "inlineChat.start",
+                "scheme": "command"
+              },
+              "https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted": {
+                "$mid": 1,
+                "path": "/copilot/using-github-copilot/getting-started-with-github-copilot",
+                "scheme": "https",
+                "authority": "docs.github.com",
+                "query": "tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted"
+              },
+              "https://code.visualstudio.com/docs/copilot/overview": {
+                "$mid": 1,
+                "path": "/docs/copilot/overview",
+                "scheme": "https",
+                "authority": "code.visualstudio.com"
+              },
+              "command:github.copilot.open.walkthrough": {
+                "$mid": 1,
+                "path": "github.copilot.open.walkthrough",
+                "scheme": "command"
+              }
+            }
+          },
+          "supportIssueReporting": false,
+          "supportsSlowVariables": true,
+          "requester": {
+            "name": "rafidoth",
+            "icon": {
+              "$mid": 1,
+              "path": "/u/67283985",
+              "scheme": "https",
+              "authority": "avatars.githubusercontent.com",
+              "query": "v=4"
+            }
+          }
+        },
+        "name": "GitHubCopilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "slashCommands": [],
+        "disambiguation": [
+          {
+            "category": "generate_code_sample",
+            "description": "The user wants to generate code snippets without referencing the contents of the current workspace. This category does not include generating entire projects.",
+            "examples": [
+              "Write an example of computing a SHA256 hash."
+            ]
+          },
+          {
+            "category": "question_about_specific_files",
+            "description": "The user has a question about a specific file or code snippet that they have provided as part of their query, and the question does not require additional workspace context to answer.",
+            "examples": [
+              "What does this file do?"
+            ]
+          }
+        ]
+      },
+      "contentReferences": [
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/_aa993dcf._.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/_aa993dcf._.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/_aa993dcf._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 179,
+              "startColumn": 1,
+              "endLineNumber": 214,
+              "endColumn": 40
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/_b4ef9867._.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/_b4ef9867._.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/_b4ef9867._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 220,
+              "startColumn": 1,
+              "endLineNumber": 236,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/_b4ef9867._.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/_b4ef9867._.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/_b4ef9867._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 238,
+              "startColumn": 1,
+              "endLineNumber": 265,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/_cde1c99c._.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/_cde1c99c._.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/_cde1c99c._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 159,
+              "startColumn": 1,
+              "endLineNumber": 175,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/_cde1c99c._.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/_cde1c99c._.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/_cde1c99c._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 177,
+              "startColumn": 1,
+              "endLineNumber": 204,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__1bcb1e50._.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/%5Broot%20of%20the%20server%5D__1bcb1e50._.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__1bcb1e50._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 322,
+              "startColumn": 1,
+              "endLineNumber": 369,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/%5Broot%20of%20the%20server%5D__1bcb1e50._.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__1bcb1e50._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 988,
+              "startColumn": 1,
+              "endLineNumber": 999,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/%5Broot%20of%20the%20server%5D__1bcb1e50._.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__1bcb1e50._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 1003,
+              "startColumn": 1,
+              "endLineNumber": 1019,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/%5Broot%20of%20the%20server%5D__1bcb1e50._.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__1bcb1e50._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 1021,
+              "startColumn": 1,
+              "endLineNumber": 1045,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__1bcb1e50._.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/%5Broot%20of%20the%20server%5D__1bcb1e50._.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__1bcb1e50._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 1087,
+              "startColumn": 1,
+              "endLineNumber": 1109,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/%5Broot%20of%20the%20server%5D__a7aa25df._.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__a7aa25df._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 205,
+              "startColumn": 1,
+              "endLineNumber": 216,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/%5Broot%20of%20the%20server%5D__a7aa25df._.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__a7aa25df._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 220,
+              "startColumn": 1,
+              "endLineNumber": 236,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__a7aa25df._.js",
+              "external": "file:///home/raphy/dev/ument/.next/server/chunks/ssr/%5Broot%20of%20the%20server%5D__a7aa25df._.js",
+              "path": "/home/raphy/dev/ument/.next/server/chunks/ssr/[root of the server]__a7aa25df._.js",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 238,
+              "startColumn": 1,
+              "endLineNumber": 262,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "/home/raphy/dev/ument/app/(mentor)/m/mysessions/page.tsx",
+            "external": "file:///home/raphy/dev/ument/app/%28mentor%29/m/mysessions/page.tsx",
+            "path": "/home/raphy/dev/ument/app/(mentor)/m/mysessions/page.tsx",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/app/data/fake.ts",
+              "external": "file:///home/raphy/dev/ument/app/data/fake.ts",
+              "path": "/home/raphy/dev/ument/app/data/fake.ts",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 26,
+              "startColumn": 1,
+              "endLineNumber": 55,
+              "endColumn": 1
+            }
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "/home/raphy/dev/ument/app/lib/fetchers/sessions.ts",
+            "external": "file:///home/raphy/dev/ument/app/lib/fetchers/sessions.ts",
+            "path": "/home/raphy/dev/ument/app/lib/fetchers/sessions.ts",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "/home/raphy/dev/ument/app/types.ts",
+            "external": "file:///home/raphy/dev/ument/app/types.ts",
+            "path": "/home/raphy/dev/ument/app/types.ts",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "/home/raphy/dev/ument/app/ui/SessionCard.tsx",
+            "external": "file:///home/raphy/dev/ument/app/ui/SessionCard.tsx",
+            "path": "/home/raphy/dev/ument/app/ui/SessionCard.tsx",
+            "scheme": "file"
+          }
+        }
+      ],
+      "codeCitations": [],
+      "timestamp": 1742810437600
+    },
+    {
+      "requestId": "request_8b653256-35ad-415d-b31e-60de44d9bca2",
+      "message": {
+        "text": "complete gotonext and previous month functions just setDate to next month of the current date and previous for the other one",
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 124
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 125
+            },
+            "text": "complete gotonext and previous month functions just setDate to next month of the current date and previous for the other one",
+            "kind": "text"
+          }
+        ]
+      },
+      "variableData": {
+        "variables": [
+          {
+            "id": "vscode.implicit.viewport",
+            "name": "file:CalendarMonthSwitcher.tsx",
+            "value": {
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/ui/CalendarUI/CalendarMonthSwitcher.tsx",
+                "external": "file:///home/raphy/dev/ument/app/ui/CalendarUI/CalendarMonthSwitcher.tsx",
+                "path": "/home/raphy/dev/ument/app/ui/CalendarUI/CalendarMonthSwitcher.tsx",
+                "scheme": "file"
+              },
+              "range": {
+                "startLineNumber": 14,
+                "startColumn": 1,
+                "endLineNumber": 36,
+                "endColumn": 54
+              }
+            },
+            "isFile": true,
+            "isDynamic": true,
+            "modelDescription": "User's current visible code"
+          }
+        ]
+      },
+      "response": [
+        {
+          "value": "### Plan\n1. Use ",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "date-fns",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 26,
+                "startColumn": 11,
+                "endLineNumber": 26,
+                "endColumn": 11
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/ui/CalendarUI/CalendarMonthSwitcher.tsx",
+                "external": "file:///home/raphy/dev/ument/app/ui/CalendarUI/CalendarMonthSwitcher.tsx",
+                "path": "/home/raphy/dev/ument/app/ui/CalendarUI/CalendarMonthSwitcher.tsx",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "269e4944-6858-4bce-a698-fe2bb1206c29"
+        },
+        {
+          "value": " functions to handle date calculations\n2. Create functions to:\n   - Add one month for next\n   - Subtract one month for previous\n3. Use setDate from context to update\n\n```tsx\n",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        },
+        {
+          "kind": "codeblockUri",
+          "uri": {
+            "$mid": 1,
+            "external": "file:///home/raphy/dev/ument/app/ui/CalendarUI/CalendarMonthSwitcher.tsx",
+            "path": "/home/raphy/dev/ument/app/ui/CalendarUI/CalendarMonthSwitcher.tsx",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": "import { addMonths, subMonths } from \"date-fns\";\n\nconst CalendarMonthSwitcher = (props: Props) => {\n  const { date, setDate } = useCalendarContext();\n  const month = months[getMonth(date)];\n\n  const goToPreviousMonth = () => {\n    setDate(subMonths(date, 1));\n  };\n\n  const goToNextMonth = () => {\n    setDate(addMonths(date, 1));\n  };\n\n  return (\n    <div>\n      <div className={cn(\"w-[100px] h-[60px] flex flex-col\")}>\n        <div className=\"flex bg-orange-800 rounded-lg\">\n          <span className=\"hover:opacity-60\" onClick={goToPreviousMonth}>{\"<\"}</span>\n          <span>{month}</span>\n          <span className=\"hover:opacity-60\" onClick={goToNextMonth}>{\">\"}</span>\n        </div>\n      </div>\n    </div>\n  );\n};\n```",
+          "supportThemeIcons": false,
+          "supportHtml": false
+        }
+      ],
+      "responseId": "response_f3e9e74c-daf6-46a9-80cd-8f463ec7fbc1",
+      "result": {
+        "timings": {
+          "firstProgress": 4581,
+          "totalElapsed": 6824
+        },
+        "metadata": {
+          "codeBlocks": [
+            {
+              "code": "import { addMonths, subMonths } from \"date-fns\";\n\nconst CalendarMonthSwitcher = (props: Props) => {\n  const { date, setDate } = useCalendarContext();\n  const month = months[getMonth(date)];\n\n  const goToPreviousMonth = () => {\n    setDate(subMonths(date, 1));\n  };\n\n  const goToNextMonth = () => {\n    setDate(addMonths(date, 1));\n  };\n\n  return (\n    <div>\n      <div className={cn(\"w-[100px] h-[60px] flex flex-col\")}>\n        <div className=\"flex bg-orange-800 rounded-lg\">\n          <span className=\"hover:opacity-60\" onClick={goToPreviousMonth}>{\"<\"}</span>\n          <span>{month}</span>\n          <span className=\"hover:opacity-60\" onClick={goToNextMonth}>{\">\"}</span>\n        </div>\n      </div>\n    </div>\n  );\n};\n",
+              "resource": {
+                "$mid": 1,
+                "path": "/home/raphy/dev/ument/app/ui/CalendarUI/CalendarMonthSwitcher.tsx",
+                "scheme": "file"
+              },
+              "language": "tsx",
+              "markdownBeforeBlock": "### Plan\n1. Use `date-fns` functions to handle date calculations\n2. Create functions to:\n   - Add one month for next\n   - Subtract one month for previous\n3. Use setDate from context to update\n\n"
+            }
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "complete gotonext and previous month functions just setDate to next month of the current date and previous for the other one"
+            },
+            {
+              "role": "assistant",
+              "content": "### Plan\n1. Use `date-fns` functions to handle date calculations\n2. Create functions to:\n   - Add one month for next\n   - Subtract one month for previous\n3. Use setDate from context to update\n\n```tsx\n// filepath: /home/raphy/dev/ument/app/ui/CalendarUI/CalendarMonthSwitcher.tsx\nimport { addMonths, subMonths } from \"date-fns\";\n\nconst CalendarMonthSwitcher = (props: Props) => {\n  const { date, setDate } = useCalendarContext();\n  const month = months[getMonth(date)];\n\n  const goToPreviousMonth = () => {\n    setDate(subMonths(date, 1));\n  };\n\n  const goToNextMonth = () => {\n    setDate(addMonths(date, 1));\n  };\n\n  return (\n    <div>\n      <div className={cn(\"w-[100px] h-[60px] flex flex-col\")}>\n        <div className=\"flex bg-orange-800 rounded-lg\">\n          <span className=\"hover:opacity-60\" onClick={goToPreviousMonth}>{\"<\"}</span>\n          <span>{month}</span>\n          <span className=\"hover:opacity-60\" onClick={goToNextMonth}>{\">\"}</span>\n        </div>\n      </div>\n    </div>\n  );\n};\n```"
+            }
+          ],
+          "modelMessageId": "bb44a6b4-e33c-4008-9cb5-6775de5665fd",
+          "responseId": "441c7e6f-2007-4ccc-ae4f-1d0bccc52e38",
+          "sessionId": "9f68089a-125a-432d-b893-c11997de9299",
+          "agentId": "github.copilot.default"
+        }
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.default",
+        "description": "Ask Copilot",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": true,
+          "helpTextPrefix": "You can ask me general programming questions, or chat with the following participants which have specialized expertise and can perform actions:",
+          "helpTextVariablesPrefix": "You can also help me understand your question by using the following variables to give me extra context:",
+          "helpTextPostfix": {
+            "value": "To have a great conversation, ask me questions as if I was a real programmer:\n\n* **Show me the code** you want to talk about by having the files open and selecting the most important lines.\n* **Make refinements** by asking me follow-up questions, adding clarifications, providing errors, etc.\n* **Review my suggested code** and tell me about issues or improvements, so I can iterate on it.\n\nYou can also ask me questions about your editor selection by [starting an inline chat session](command:inlineChat.start).\n\nLearn more about [GitHub Copilot](https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted) in [Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). Or explore the [Copilot walkthrough](command:github.copilot.open.walkthrough).",
+            "isTrusted": {
+              "enabledCommands": [
+                "inlineChat.start",
+                "github.copilot.open.walkthrough"
+              ]
+            },
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "uris": {
+              "command:inlineChat.start": {
+                "$mid": 1,
+                "path": "inlineChat.start",
+                "scheme": "command"
+              },
+              "https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted": {
+                "$mid": 1,
+                "path": "/copilot/using-github-copilot/getting-started-with-github-copilot",
+                "scheme": "https",
+                "authority": "docs.github.com",
+                "query": "tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted"
+              },
+              "https://code.visualstudio.com/docs/copilot/overview": {
+                "$mid": 1,
+                "path": "/docs/copilot/overview",
+                "scheme": "https",
+                "authority": "code.visualstudio.com"
+              },
+              "command:github.copilot.open.walkthrough": {
+                "$mid": 1,
+                "path": "github.copilot.open.walkthrough",
+                "scheme": "command"
+              }
+            }
+          },
+          "supportIssueReporting": false,
+          "supportsSlowVariables": true,
+          "requester": {
+            "name": "rafidoth",
+            "icon": {
+              "$mid": 1,
+              "path": "/u/67283985",
+              "scheme": "https",
+              "authority": "avatars.githubusercontent.com",
+              "query": "v=4"
+            }
+          }
+        },
+        "name": "GitHubCopilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "slashCommands": [],
+        "disambiguation": [
+          {
+            "category": "generate_code_sample",
+            "description": "The user wants to generate code snippets without referencing the contents of the current workspace. This category does not include generating entire projects.",
+            "examples": [
+              "Write an example of computing a SHA256 hash."
+            ]
+          },
+          {
+            "category": "question_about_specific_files",
+            "description": "The user has a question about a specific file or code snippet that they have provided as part of their query, and the question does not require additional workspace context to answer.",
+            "examples": [
+              "What does this file do?"
+            ]
+          }
+        ]
+      },
+      "contentReferences": [
+        {
+          "kind": "reference",
+          "reference": {
+            "uri": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/app/ui/CalendarUI/CalendarMonthSwitcher.tsx",
+              "external": "file:///home/raphy/dev/ument/app/ui/CalendarUI/CalendarMonthSwitcher.tsx",
+              "path": "/home/raphy/dev/ument/app/ui/CalendarUI/CalendarMonthSwitcher.tsx",
+              "scheme": "file"
+            },
+            "range": {
+              "startLineNumber": 14,
+              "startColumn": 1,
+              "endLineNumber": 36,
+              "endColumn": 54
+            }
+          }
+        }
+      ],
+      "codeCitations": [],
+      "timestamp": 1742901080259
+    },
+    {
+      "requestId": "request_3df5f092-d2e5-4364-bbf9-3cdb696d94b4",
+      "message": {
+        "text": "write the getSessionsStudent",
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 28
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 29
+            },
+            "text": "write the getSessionsStudent",
+            "kind": "text"
+          }
+        ]
+      },
+      "variableData": {
+        "variables": [
+          {
+            "id": "copilot_codebase",
+            "name": "Codebase",
+            "fullName": "Codebase",
+            "icon": {
+              "id": "folder"
+            },
+            "isTool": true
+          },
+          {
+            "id": "vscode.implicit.viewport",
+            "name": "file:sessions.ts",
+            "value": {
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/lib/fetchers/sessions.ts",
+                "external": "file:///home/raphy/dev/ument/app/lib/fetchers/sessions.ts",
+                "path": "/home/raphy/dev/ument/app/lib/fetchers/sessions.ts",
+                "scheme": "file"
+              },
+              "range": {
+                "startLineNumber": 1,
+                "startColumn": 1,
+                "endLineNumber": 22,
+                "endColumn": 2
+              }
+            },
+            "isFile": true,
+            "isDynamic": true,
+            "modelDescription": "User's current visible code"
+          }
+        ]
+      },
+      "response": [
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": "Searching codebase for \"getSessionsStudent function implementation\"",
+          "isConfirmed": true,
+          "isComplete": true
+        }
+      ],
+      "responseId": "response_c68fc15b-fe78-4929-8ffd-909302734b6f",
+      "isCanceled": true,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.default",
+        "description": "Ask Copilot",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": true,
+          "helpTextPrefix": "You can ask me general programming questions, or chat with the following participants which have specialized expertise and can perform actions:",
+          "helpTextVariablesPrefix": "You can also help me understand your question by using the following variables to give me extra context:",
+          "helpTextPostfix": {
+            "value": "To have a great conversation, ask me questions as if I was a real programmer:\n\n* **Show me the code** you want to talk about by having the files open and selecting the most important lines.\n* **Make refinements** by asking me follow-up questions, adding clarifications, providing errors, etc.\n* **Review my suggested code** and tell me about issues or improvements, so I can iterate on it.\n\nYou can also ask me questions about your editor selection by [starting an inline chat session](command:inlineChat.start).\n\nLearn more about [GitHub Copilot](https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted) in [Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). Or explore the [Copilot walkthrough](command:github.copilot.open.walkthrough).",
+            "isTrusted": {
+              "enabledCommands": [
+                "inlineChat.start",
+                "github.copilot.open.walkthrough"
+              ]
+            },
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "uris": {
+              "command:inlineChat.start": {
+                "$mid": 1,
+                "path": "inlineChat.start",
+                "scheme": "command"
+              },
+              "https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted": {
+                "$mid": 1,
+                "path": "/copilot/using-github-copilot/getting-started-with-github-copilot",
+                "scheme": "https",
+                "authority": "docs.github.com",
+                "query": "tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted"
+              },
+              "https://code.visualstudio.com/docs/copilot/overview": {
+                "$mid": 1,
+                "path": "/docs/copilot/overview",
+                "scheme": "https",
+                "authority": "code.visualstudio.com"
+              },
+              "command:github.copilot.open.walkthrough": {
+                "$mid": 1,
+                "path": "github.copilot.open.walkthrough",
+                "scheme": "command"
+              }
+            }
+          },
+          "supportIssueReporting": false,
+          "supportsSlowVariables": true,
+          "requester": {
+            "name": "rafidoth",
+            "icon": {
+              "$mid": 1,
+              "path": "/u/67283985",
+              "scheme": "https",
+              "authority": "avatars.githubusercontent.com",
+              "query": "v=4"
+            }
+          }
+        },
+        "name": "GitHubCopilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "slashCommands": [],
+        "disambiguation": [
+          {
+            "category": "generate_code_sample",
+            "description": "The user wants to generate code snippets without referencing the contents of the current workspace. This category does not include generating entire projects.",
+            "examples": [
+              "Write an example of computing a SHA256 hash."
+            ]
+          },
+          {
+            "category": "question_about_specific_files",
+            "description": "The user has a question about a specific file or code snippet that they have provided as part of their query, and the question does not require additional workspace context to answer.",
+            "examples": [
+              "What does this file do?"
+            ]
+          }
+        ]
+      },
+      "contentReferences": [],
+      "codeCitations": [],
+      "timestamp": 1742911018670
+    },
+    {
+      "requestId": "request_e3a84405-2dc1-4895-afee-8a2f1a4ce22a",
+      "message": {
+        "text": "chchange legendary grandmaster to Grandmaster. ",
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 47
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 48
+            },
+            "text": "chchange legendary grandmaster to Grandmaster. ",
+            "kind": "text"
+          }
+        ]
+      },
+      "variableData": {
+        "variables": []
+      },
+      "response": [],
+      "responseId": "response_f917c956-1ce8-46fe-87f1-bee906505076",
+      "isCanceled": true,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.editor",
+        "description": "Ask Copilot",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": false,
+          "supportIssueReporting": false
+        },
+        "name": "Copilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "editor"
+        ],
+        "slashCommands": [
+          {
+            "name": "doc",
+            "description": "Add documentation comment for this symbol"
+          },
+          {
+            "name": "fix",
+            "description": "Propose a fix for the problems in the selected code"
+          },
+          {
+            "name": "explain",
+            "description": "Explain how the code in your active editor works"
+          },
+          {
+            "name": "tests",
+            "description": "Generate unit tests for the selected code"
+          }
+        ],
+        "disambiguation": []
+      },
+      "contentReferences": [],
+      "codeCitations": [],
+      "timestamp": 1743012559375
+    },
+    {
+      "requestId": "request_cf9423a3-4b70-4d4f-85c6-7221964e694b",
+      "message": {
+        "text": "make a md file in the root folder about the apis needed. get reference from apiClient.ts and lib folder (fetchers and mutations folders)",
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 136
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 137
+            },
+            "text": "make a md file in the root folder about the apis needed. get reference from apiClient.ts and lib folder (fetchers and mutations folders)",
+            "kind": "text"
+          }
+        ]
+      },
+      "variableData": {
+        "variables": [
+          {
+            "id": "copilot_codebase",
+            "name": "Codebase",
+            "fullName": "Codebase",
+            "icon": {
+              "id": "folder"
+            },
+            "isTool": true
+          },
+          {
+            "id": "vscode.implicit.viewport",
+            "name": "file:page.tsx",
+            "value": {
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/(student)/s/sessions/page.tsx",
+                "external": "file:///home/raphy/dev/ument/app/%28student%29/s/sessions/page.tsx",
+                "path": "/home/raphy/dev/ument/app/(student)/s/sessions/page.tsx",
+                "scheme": "file"
+              },
+              "range": {
+                "startLineNumber": 1,
+                "startColumn": 1,
+                "endLineNumber": 28,
+                "endColumn": 14
+              }
+            },
+            "isFile": true,
+            "isDynamic": true,
+            "modelDescription": "User's current visible code"
+          }
+        ]
+      },
+      "response": [
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": "Searching codebase for \"apiClient.ts\"",
+          "isConfirmed": true,
+          "isComplete": true
+        }
+      ],
+      "responseId": "response_b2083517-f9dd-44de-b06a-550465fd68ac",
+      "isCanceled": true,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.default",
+        "description": "Ask Copilot",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": true,
+          "helpTextPrefix": "You can ask me general programming questions, or chat with the following participants which have specialized expertise and can perform actions:",
+          "helpTextVariablesPrefix": "You can also help me understand your question by using the following variables to give me extra context:",
+          "helpTextPostfix": {
+            "value": "To have a great conversation, ask me questions as if I was a real programmer:\n\n* **Show me the code** you want to talk about by having the files open and selecting the most important lines.\n* **Make refinements** by asking me follow-up questions, adding clarifications, providing errors, etc.\n* **Review my suggested code** and tell me about issues or improvements, so I can iterate on it.\n\nYou can also ask me questions about your editor selection by [starting an inline chat session](command:inlineChat.start).\n\nLearn more about [GitHub Copilot](https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted) in [Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). Or explore the [Copilot walkthrough](command:github.copilot.open.walkthrough).",
+            "isTrusted": {
+              "enabledCommands": [
+                "inlineChat.start",
+                "github.copilot.open.walkthrough"
+              ]
+            },
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "uris": {
+              "command:inlineChat.start": {
+                "$mid": 1,
+                "path": "inlineChat.start",
+                "scheme": "command"
+              },
+              "https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted": {
+                "$mid": 1,
+                "path": "/copilot/using-github-copilot/getting-started-with-github-copilot",
+                "scheme": "https",
+                "authority": "docs.github.com",
+                "query": "tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted"
+              },
+              "https://code.visualstudio.com/docs/copilot/overview": {
+                "$mid": 1,
+                "path": "/docs/copilot/overview",
+                "scheme": "https",
+                "authority": "code.visualstudio.com"
+              },
+              "command:github.copilot.open.walkthrough": {
+                "$mid": 1,
+                "path": "github.copilot.open.walkthrough",
+                "scheme": "command"
+              }
+            }
+          },
+          "supportIssueReporting": false,
+          "supportsSlowVariables": true,
+          "requester": {
+            "name": "rafidoth",
+            "icon": {
+              "$mid": 1,
+              "path": "/u/67283985",
+              "scheme": "https",
+              "authority": "avatars.githubusercontent.com",
+              "query": "v=4"
+            }
+          }
+        },
+        "name": "GitHubCopilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "slashCommands": [],
+        "disambiguation": [
+          {
+            "category": "generate_code_sample",
+            "description": "The user wants to generate code snippets without referencing the contents of the current workspace. This category does not include generating entire projects.",
+            "examples": [
+              "Write an example of computing a SHA256 hash."
+            ]
+          },
+          {
+            "category": "question_about_specific_files",
+            "description": "The user has a question about a specific file or code snippet that they have provided as part of their query, and the question does not require additional workspace context to answer.",
+            "examples": [
+              "What does this file do?"
+            ]
+          }
+        ]
+      },
+      "contentReferences": [],
+      "codeCitations": [],
+      "timestamp": 1743150240848
+    },
+    {
+      "requestId": "request_129bceeb-438a-4109-960d-515c130ec9b0",
+      "message": {
+        "text": "in this array of objects the first item has a extra field StartTime add this to other items too.",
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 96
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 97
+            },
+            "text": "in this array of objects the first item has a extra field StartTime add this to other items too.",
+            "kind": "text"
+          }
+        ]
+      },
+      "variableData": {
+        "variables": []
+      },
+      "response": [
+        {
+          "kind": "textEditGroup",
+          "uri": {
+            "$mid": 1,
+            "fsPath": "/home/raphy/dev/ument/app/data/fake.ts",
+            "external": "file:///home/raphy/dev/ument/app/data/fake.ts",
+            "path": "/home/raphy/dev/ument/app/data/fake.ts",
+            "scheme": "file"
+          },
+          "edits": [
+            [
+              {
+                "text": "export const fakeGroupSessionInfos = [",
+                "range": {
+                  "startLineNumber": 752,
+                  "startColumn": 1,
+                  "endLineNumber": 752,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "  {",
+                "range": {
+                  "startLineNumber": 753,
+                  "startColumn": 1,
+                  "endLineNumber": 753,
+                  "endColumn": 39
+                }
+              }
+            ],
+            [
+              {
+                "text": "    id: \"fakeGSession\",",
+                "range": {
+                  "startLineNumber": 754,
+                  "startColumn": 1,
+                  "endLineNumber": 754,
+                  "endColumn": 4
+                }
+              }
+            ],
+            [
+              {
+                "text": "    Title: \"Golang Zero to One\",",
+                "range": {
+                  "startLineNumber": 755,
+                  "startColumn": 1,
+                  "endLineNumber": 755,
+                  "endColumn": 24
+                }
+              }
+            ],
+            [
+              {
+                "text": "    Description: \"Group session description\",",
+                "range": {
+                  "startLineNumber": 756,
+                  "startColumn": 1,
+                  "endLineNumber": 756,
+                  "endColumn": 33
+                }
+              }
+            ],
+            [
+              {
+                "text": "    DurationInMinutes: 120,",
+                "range": {
+                  "startLineNumber": 757,
+                  "startColumn": 1,
+                  "endLineNumber": 757,
+                  "endColumn": 46
+                }
+              }
+            ],
+            [
+              {
+                "text": "    StartTime: new Date(),",
+                "range": {
+                  "startLineNumber": 758,
+                  "startColumn": 1,
+                  "endLineNumber": 758,
+                  "endColumn": 28
+                }
+              }
+            ],
+            [
+              {
+                "text": "    mentorId: \"fakeMentorId\",",
+                "range": {
+                  "startLineNumber": 759,
+                  "startColumn": 1,
+                  "endLineNumber": 759,
+                  "endColumn": 27
+                }
+              }
+            ],
+            [
+              {
+                "text": "    mentorName: \"S Rafiul Hasan\",",
+                "range": {
+                  "startLineNumber": 760,
+                  "startColumn": 1,
+                  "endLineNumber": 760,
+                  "endColumn": 30
+                }
+              }
+            ],
+            [
+              {
+                "text": "    mentorPhotoLink:",
+                "range": {
+                  "startLineNumber": 761,
+                  "startColumn": 1,
+                  "endLineNumber": 761,
+                  "endColumn": 34
+                }
+              }
+            ],
+            [
+              {
+                "text": "      \"https://avatars.githubusercontent.com/u/67283985?s=400&u=785ba4e71821a24fee9df89190cbfab208e72dd3&v=4\",",
+                "range": {
+                  "startLineNumber": 762,
+                  "startColumn": 1,
+                  "endLineNumber": 762,
+                  "endColumn": 21
+                }
+              }
+            ],
+            [
+              {
+                "text": "    participantCount: 37,",
+                "range": {
+                  "startLineNumber": 763,
+                  "startColumn": 1,
+                  "endLineNumber": 763,
+                  "endColumn": 111
+                }
+              }
+            ],
+            [
+              {
+                "text": "    participantTotal: 40,",
+                "range": {
+                  "startLineNumber": 764,
+                  "startColumn": 1,
+                  "endLineNumber": 764,
+                  "endColumn": 26
+                }
+              }
+            ],
+            [
+              {
+                "text": "  },",
+                "range": {
+                  "startLineNumber": 765,
+                  "startColumn": 1,
+                  "endLineNumber": 765,
+                  "endColumn": 26
+                }
+              }
+            ],
+            [
+              {
+                "text": "  {",
+                "range": {
+                  "startLineNumber": 766,
+                  "startColumn": 1,
+                  "endLineNumber": 766,
+                  "endColumn": 5
+                }
+              }
+            ],
+            [
+              {
+                "text": "    id: \"fakeGSession2\",",
+                "range": {
+                  "startLineNumber": 767,
+                  "startColumn": 1,
+                  "endLineNumber": 767,
+                  "endColumn": 4
+                }
+              }
+            ],
+            [
+              {
+                "text": "    Title: \"React for Beginners\",",
+                "range": {
+                  "startLineNumber": 768,
+                  "startColumn": 1,
+                  "endLineNumber": 768,
+                  "endColumn": 25
+                }
+              }
+            ],
+            [
+              {
+                "text": "    Description: \"Learn the basics of React.js\",",
+                "range": {
+                  "startLineNumber": 769,
+                  "startColumn": 1,
+                  "endLineNumber": 769,
+                  "endColumn": 34
+                }
+              }
+            ],
+            [
+              {
+                "text": "    DurationInMinutes: 90,",
+                "range": {
+                  "startLineNumber": 770,
+                  "startColumn": 1,
+                  "endLineNumber": 770,
+                  "endColumn": 49
+                }
+              }
+            ],
+            [
+              {
+                "text": "    StartTime: new Date(),",
+                "range": {
+                  "startLineNumber": 771,
+                  "startColumn": 1,
+                  "endLineNumber": 771,
+                  "endColumn": 27
+                }
+              }
+            ],
+            [
+              {
+                "text": "    StartTime: new Date(),",
+                "range": {
+                  "startLineNumber": 783,
+                  "startColumn": 1,
+                  "endLineNumber": 783,
+                  "endColumn": 31
+                }
+              }
+            ],
+            [
+              {
+                "text": "    mentorId: \"fakeMentorId3\",",
+                "range": {
+                  "startLineNumber": 784,
+                  "startColumn": 1,
+                  "endLineNumber": 784,
+                  "endColumn": 30
+                }
+              }
+            ],
+            [
+              {
+                "text": "    mentorName: \"Jane Smith\",",
+                "range": {
+                  "startLineNumber": 785,
+                  "startColumn": 1,
+                  "endLineNumber": 785,
+                  "endColumn": 56
+                }
+              }
+            ],
+            [
+              {
+                "text": "    mentorPhotoLink: \"https://i.pravatar.cc/150?img=2\",",
+                "range": {
+                  "startLineNumber": 786,
+                  "startColumn": 1,
+                  "endLineNumber": 786,
+                  "endColumn": 26
+                }
+              }
+            ],
+            [
+              {
+                "text": "    participantCount: 18,",
+                "range": {
+                  "startLineNumber": 787,
+                  "startColumn": 1,
+                  "endLineNumber": 787,
+                  "endColumn": 26
+                }
+              }
+            ],
+            [
+              {
+                "text": "    participantTotal: 20,",
+                "range": {
+                  "startLineNumber": 788,
+                  "startColumn": 1,
+                  "endLineNumber": 788,
+                  "endColumn": 5
+                }
+              }
+            ],
+            [
+              {
+                "text": "  },",
+                "range": {
+                  "startLineNumber": 789,
+                  "startColumn": 1,
+                  "endLineNumber": 789,
+                  "endColumn": 4
+                }
+              }
+            ],
+            [
+              {
+                "text": "  {",
+                "range": {
+                  "startLineNumber": 790,
+                  "startColumn": 1,
+                  "endLineNumber": 790,
+                  "endColumn": 25
+                }
+              }
+            ],
+            [
+              {
+                "text": "    id: \"fakeGSession4\",",
+                "range": {
+                  "startLineNumber": 791,
+                  "startColumn": 1,
+                  "endLineNumber": 791,
+                  "endColumn": 38
+                }
+              }
+            ],
+            [
+              {
+                "text": "    Title: \"Python for Data Science\",",
+                "range": {
+                  "startLineNumber": 792,
+                  "startColumn": 1,
+                  "endLineNumber": 792,
+                  "endColumn": 63
+                }
+              }
+            ],
+            [
+              {
+                "text": "    Description: \"Explore Python libraries for data analysis\",",
+                "range": {
+                  "startLineNumber": 793,
+                  "startColumn": 1,
+                  "endLineNumber": 793,
+                  "endColumn": 28
+                }
+              }
+            ],
+            [
+              {
+                "text": "    DurationInMinutes: 120,",
+                "range": {
+                  "startLineNumber": 794,
+                  "startColumn": 1,
+                  "endLineNumber": 794,
+                  "endColumn": 31
+                }
+              }
+            ],
+            [
+              {
+                "text": "    StartTime: new Date(),",
+                "range": {
+                  "startLineNumber": 795,
+                  "startColumn": 1,
+                  "endLineNumber": 795,
+                  "endColumn": 33
+                }
+              }
+            ],
+            [
+              {
+                "text": "    mentorId: \"fakeMentorId4\",",
+                "range": {
+                  "startLineNumber": 796,
+                  "startColumn": 1,
+                  "endLineNumber": 796,
+                  "endColumn": 56
+                }
+              }
+            ],
+            [
+              {
+                "text": "    mentorName: \"Alice Johnson\",",
+                "range": {
+                  "startLineNumber": 797,
+                  "startColumn": 1,
+                  "endLineNumber": 797,
+                  "endColumn": 26
+                }
+              }
+            ],
+            [
+              {
+                "text": "    mentorPhotoLink: \"https://i.pravatar.cc/150?img=3\",",
+                "range": {
+                  "startLineNumber": 798,
+                  "startColumn": 1,
+                  "endLineNumber": 798,
+                  "endColumn": 26
+                }
+              }
+            ],
+            [
+              {
+                "text": "    participantCount: 35,",
+                "range": {
+                  "startLineNumber": 799,
+                  "startColumn": 1,
+                  "endLineNumber": 799,
+                  "endColumn": 5
+                }
+              }
+            ],
+            [
+              {
+                "text": "    participantTotal: 40,",
+                "range": {
+                  "startLineNumber": 800,
+                  "startColumn": 1,
+                  "endLineNumber": 800,
+                  "endColumn": 4
+                }
+              }
+            ],
+            [
+              {
+                "text": "  },",
+                "range": {
+                  "startLineNumber": 801,
+                  "startColumn": 1,
+                  "endLineNumber": 801,
+                  "endColumn": 25
+                }
+              }
+            ],
+            [
+              {
+                "text": "  {",
+                "range": {
+                  "startLineNumber": 802,
+                  "startColumn": 1,
+                  "endLineNumber": 802,
+                  "endColumn": 47
+                }
+              }
+            ],
+            [
+              {
+                "text": "    id: \"fakeGSession5\",",
+                "range": {
+                  "startLineNumber": 803,
+                  "startColumn": 1,
+                  "endLineNumber": 803,
+                  "endColumn": 59
+                }
+              }
+            ],
+            [
+              {
+                "text": "    Title: \"Introduction to Machine Learning\",",
+                "range": {
+                  "startLineNumber": 804,
+                  "startColumn": 1,
+                  "endLineNumber": 804,
+                  "endColumn": 28
+                }
+              }
+            ],
+            [
+              {
+                "text": "    Description: \"Understand the basics of ML algorithms\",",
+                "range": {
+                  "startLineNumber": 805,
+                  "startColumn": 1,
+                  "endLineNumber": 805,
+                  "endColumn": 31
+                }
+              }
+            ],
+            [
+              {
+                "text": "    DurationInMinutes: 180,",
+                "range": {
+                  "startLineNumber": 806,
+                  "startColumn": 1,
+                  "endLineNumber": 806,
+                  "endColumn": 29
+                }
+              }
+            ],
+            [
+              {
+                "text": "    StartTime: new Date(),",
+                "range": {
+                  "startLineNumber": 807,
+                  "startColumn": 1,
+                  "endLineNumber": 807,
+                  "endColumn": 56
+                }
+              }
+            ],
+            [
+              {
+                "text": "    mentorId: \"fakeMentorId5\",",
+                "range": {
+                  "startLineNumber": 808,
+                  "startColumn": 1,
+                  "endLineNumber": 808,
+                  "endColumn": 26
+                }
+              }
+            ],
+            [
+              {
+                "text": "    mentorName: \"Bob Brown\",",
+                "range": {
+                  "startLineNumber": 809,
+                  "startColumn": 1,
+                  "endLineNumber": 809,
+                  "endColumn": 26
+                }
+              }
+            ],
+            [
+              {
+                "text": "    mentorPhotoLink: \"https://i.pravatar.cc/150?img=4\",",
+                "range": {
+                  "startLineNumber": 810,
+                  "startColumn": 1,
+                  "endLineNumber": 810,
+                  "endColumn": 5
+                }
+              }
+            ],
+            [
+              {
+                "text": "    participantCount: 20,",
+                "range": {
+                  "startLineNumber": 811,
+                  "startColumn": 1,
+                  "endLineNumber": 811,
+                  "endColumn": 3
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    participantTotal: 25,",
+                "range": {
+                  "startLineNumber": 811,
+                  "startColumn": 26,
+                  "endLineNumber": 811,
+                  "endColumn": 26
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n  },",
+                "range": {
+                  "startLineNumber": 812,
+                  "startColumn": 26,
+                  "endLineNumber": 812,
+                  "endColumn": 26
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n];",
+                "range": {
+                  "startLineNumber": 813,
+                  "startColumn": 5,
+                  "endLineNumber": 813,
+                  "endColumn": 5
+                }
+              }
+            ],
+            []
+          ]
+        }
+      ],
+      "responseId": "response_d5addc95-7eb3-4be0-9da9-806c2d0ba924",
+      "result": {
+        "timings": {
+          "totalElapsed": 14037
+        },
+        "metadata": {
+          "codeBlocks": [],
+          "messages": [
+            {
+              "role": "user",
+              "content": "in this array of objects the first item has a extra field StartTime add this to other items too."
+            },
+            {
+              "role": "assistant",
+              "content": "```typescript\nexport const fakeGroupSessionInfos = [\n  {\n    id: \"fakeGSession\",\n    Title: \"Golang Zero to One\",\n    Description: \"Group session description\",\n    DurationInMinutes: 120,\n    StartTime: new Date(),\n    mentorId: \"fakeMentorId\",\n    mentorName: \"S Rafiul Hasan\",\n    mentorPhotoLink:\n      \"https://avatars.githubusercontent.com/u/67283985?s=400&u=785ba4e71821a24fee9df89190cbfab208e72dd3&v=4\",\n    participantCount: 37,\n    participantTotal: 40,\n  },\n  {\n    id: \"fakeGSession2\",\n    Title: \"React for Beginners\",\n    Description: \"Learn the basics of React.js\",\n    DurationInMinutes: 90,\n    StartTime: new Date(),\n    mentorId: \"fakeMentorId2\",\n    mentorName: \"John Doe\",\n    mentorPhotoLink: \"https://i.pravatar.cc/150?img=1\",\n    participantCount: 25,\n    participantTotal: 30,\n  },\n  {\n    id: \"fakeGSession3\",\n    Title: \"Advanced TypeScript\",\n    Description: \"Deep dive into TypeScript features\",\n    DurationInMinutes: 150,\n    StartTime: new Date(),\n    mentorId: \"fakeMentorId3\",\n    mentorName: \"Jane Smith\",\n    mentorPhotoLink: \"https://i.pravatar.cc/150?img=2\",\n    participantCount: 18,\n    participantTotal: 20,\n  },\n  {\n    id: \"fakeGSession4\",\n    Title: \"Python for Data Science\",\n    Description: \"Explore Python libraries for data analysis\",\n    DurationInMinutes: 120,\n    StartTime: new Date(),\n    mentorId: \"fakeMentorId4\",\n    mentorName: \"Alice Johnson\",\n    mentorPhotoLink: \"https://i.pravatar.cc/150?img=3\",\n    participantCount: 35,\n    participantTotal: 40,\n  },\n  {\n    id: \"fakeGSession5\",\n    Title: \"Introduction to Machine Learning\",\n    Description: \"Understand the basics of ML algorithms\",\n    DurationInMinutes: 180,\n    StartTime: new Date(),\n    mentorId: \"fakeMentorId5\",\n    mentorName: \"Bob Brown\",\n    mentorPhotoLink: \"https://i.pravatar.cc/150?img=4\",\n    participantCount: 20,\n    participantTotal: 25,\n  },\n];\n```"
+            }
+          ],
+          "modelMessageId": "f482d101-0035-4fd0-b459-27676495daef",
+          "responseId": "710430ab-baf6-4df5-ba91-1a21ca351c71",
+          "sessionId": "9f68089a-125a-432d-b893-c11997de9299",
+          "agentId": "github.copilot.default"
+        }
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.default",
+        "description": "Ask Copilot",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": true,
+          "helpTextPrefix": "You can ask me general programming questions, or chat with the following participants which have specialized expertise and can perform actions:",
+          "helpTextVariablesPrefix": "You can also help me understand your question by using the following variables to give me extra context:",
+          "helpTextPostfix": {
+            "value": "To have a great conversation, ask me questions as if I was a real programmer:\n\n* **Show me the code** you want to talk about by having the files open and selecting the most important lines.\n* **Make refinements** by asking me follow-up questions, adding clarifications, providing errors, etc.\n* **Review my suggested code** and tell me about issues or improvements, so I can iterate on it.\n\nYou can also ask me questions about your editor selection by [starting an inline chat session](command:inlineChat.start).\n\nLearn more about [GitHub Copilot](https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted) in [Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). Or explore the [Copilot walkthrough](command:github.copilot.open.walkthrough).",
+            "isTrusted": {
+              "enabledCommands": [
+                "inlineChat.start",
+                "github.copilot.open.walkthrough"
+              ]
+            },
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "uris": {
+              "command:inlineChat.start": {
+                "$mid": 1,
+                "path": "inlineChat.start",
+                "scheme": "command"
+              },
+              "https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted": {
+                "$mid": 1,
+                "path": "/copilot/using-github-copilot/getting-started-with-github-copilot",
+                "scheme": "https",
+                "authority": "docs.github.com",
+                "query": "tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted"
+              },
+              "https://code.visualstudio.com/docs/copilot/overview": {
+                "$mid": 1,
+                "path": "/docs/copilot/overview",
+                "scheme": "https",
+                "authority": "code.visualstudio.com"
+              },
+              "command:github.copilot.open.walkthrough": {
+                "$mid": 1,
+                "path": "github.copilot.open.walkthrough",
+                "scheme": "command"
+              }
+            }
+          },
+          "supportIssueReporting": false,
+          "supportsSlowVariables": true,
+          "requester": {
+            "name": "rafidoth",
+            "icon": {
+              "$mid": 1,
+              "path": "/u/67283985",
+              "scheme": "https",
+              "authority": "avatars.githubusercontent.com",
+              "query": "v=4"
+            }
+          }
+        },
+        "name": "GitHubCopilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "slashCommands": [],
+        "disambiguation": [
+          {
+            "category": "generate_code_sample",
+            "description": "The user wants to generate code snippets without referencing the contents of the current workspace. This category does not include generating entire projects.",
+            "examples": [
+              "Write an example of computing a SHA256 hash."
+            ]
+          },
+          {
+            "category": "question_about_specific_files",
+            "description": "The user has a question about a specific file or code snippet that they have provided as part of their query, and the question does not require additional workspace context to answer.",
+            "examples": [
+              "What does this file do?"
+            ]
+          }
+        ]
+      },
+      "contentReferences": [],
+      "codeCitations": [],
+      "timestamp": 1743333454115
+    },
+    {
+      "requestId": "request_c767a7f9-0e02-4429-834b-3322df03b2f3",
+      "message": {
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 130
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 131
+            },
+            "text": "/explain the props.value not coming from the parent component. in the parent component the interestList fetched from api correctly",
+            "kind": "text"
+          }
+        ],
+        "text": "/explain the props.value not coming from the parent component. in the parent component the interestList fetched from api correctly"
+      },
+      "variableData": {
+        "variables": [
+          {
+            "id": "file:///home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+            "value": {
+              "$mid": 1,
+              "fsPath": "/home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+              "external": "file:///home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+              "path": "/home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+              "scheme": "file"
+            },
+            "name": "InterestBox.tsx",
+            "isFile": true,
+            "isOmitted": false
+          },
+          {
+            "id": "vscode.implicit.viewport",
+            "name": "file:AddInterestBtn.tsx",
+            "value": {
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "external": "file:///home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "path": "/home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "scheme": "file"
+              },
+              "range": {
+                "startLineNumber": 103,
+                "startColumn": 1,
+                "endLineNumber": 121,
+                "endColumn": 1
+              }
+            },
+            "isFile": true,
+            "modelDescription": "User's current visible code"
+          }
+        ]
+      },
+      "response": [
+        {
+          "value": "Let's analyze the issue with props.value in the AddInterestBtn component:\n\n1. **Problem Identification**:\nIn ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/raphy/dev/ument/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "$mid": 1,
+            "fsPath": "/home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+            "external": "file:///home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+            "path": "/home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": ", you're correctly:\n- Fetching interests with ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/raphy/dev/ument/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "getInterestsList()",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 106,
+                "startColumn": 23,
+                "endLineNumber": 106,
+                "endColumn": 23
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/lib/fetchers/student.ts",
+                "external": "file:///home/raphy/dev/ument/app/lib/fetchers/student.ts",
+                "path": "/home/raphy/dev/ument/app/lib/fetchers/student.ts",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "4effae9f-f5e0-478e-8132-66516a251102"
+        },
+        {
+          "value": "\n- Storing them in ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/raphy/dev/ument/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "interestList",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 8,
+                "startColumn": 10,
+                "endLineNumber": 8,
+                "endColumn": 10
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+                "external": "file:///home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+                "path": "/home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "0453d863-a0f8-453d-99e6-3d9f77adc1a6"
+        },
+        {
+          "value": " state\n- Passing ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/raphy/dev/ument/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "interestList",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 8,
+                "startColumn": 10,
+                "endLineNumber": 8,
+                "endColumn": 10
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+                "external": "file:///home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+                "path": "/home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "f1c11f1a-80ff-4825-8cbb-47eefef69bcb"
+        },
+        {
+          "value": " as ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/raphy/dev/ument/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "value",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 20,
+                "startColumn": 3,
+                "endLineNumber": 20,
+                "endColumn": 3
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "external": "file:///home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "path": "/home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "89962c36-9e27-4200-8e4b-d16383f2fad6"
+        },
+        {
+          "value": " prop to ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/raphy/dev/ument/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "AddInterestBtn",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 23,
+                "startColumn": 7,
+                "endLineNumber": 23,
+                "endColumn": 7
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "external": "file:///home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "path": "/home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "9405d063-c78e-45c8-9718-166ba643b44a"
+        },
+        {
+          "value": "\n\n2. **Issue**:\nThe issue might be with the initial render timing:\n- ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/raphy/dev/ument/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "interestList",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 8,
+                "startColumn": 10,
+                "endLineNumber": 8,
+                "endColumn": 10
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+                "external": "file:///home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+                "path": "/home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "312f2c9a-0cac-4128-b592-8f4fb7fd879f"
+        },
+        {
+          "value": " starts as an empty array `[]`\n- ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/raphy/dev/ument/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "useEffect",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 1770,
+                "startColumn": 14,
+                "endLineNumber": 1770,
+                "endColumn": 14
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/node_modules/.pnpm/@types+react@19.0.10/node_modules/@types/react/index.d.ts",
+                "external": "file:///home/raphy/dev/ument/node_modules/.pnpm/%40types%2Breact%4019.0.10/node_modules/%40types/react/index.d.ts",
+                "path": "/home/raphy/dev/ument/node_modules/.pnpm/@types+react@19.0.10/node_modules/@types/react/index.d.ts",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "d53d81bf-b7d6-4ae7-9177-4823b53e18a4"
+        },
+        {
+          "value": " runs after first render to fetch data\n- ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/raphy/dev/ument/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "AddInterestBtn",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 23,
+                "startColumn": 7,
+                "endLineNumber": 23,
+                "endColumn": 7
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "external": "file:///home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "path": "/home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "d6ed04f4-4294-45f9-a848-6a148905d9de"
+        },
+        {
+          "value": " receives empty array initially\n- When data loads, the prop updates but state might not sync\n\n3. **Solution**:\nAdd a useEffect in ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/raphy/dev/ument/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "AddInterestBtn",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 23,
+                "startColumn": 7,
+                "endLineNumber": 23,
+                "endColumn": 7
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "external": "file:///home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "path": "/home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "65cdc3e7-a7b8-45d3-bbaa-2aa4c0d86ae1"
+        },
+        {
+          "value": " to sync with prop changes:\n\n```tsx\n",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/raphy/dev/ument/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "codeblockUri",
+          "uri": {
+            "$mid": 1,
+            "external": "file:///home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+            "path": "/home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": "const AddInterestBtn = (props: Props) => {\n  const [selectedInterests, setSelectedInterests] = useState<InterestType[]>(\n    props.value\n  );\n\n  // Add this useEffect\n  useEffect(() => {\n    setSelectedInterests(props.value);\n  }, [props.value]);\n\n  // ...rest of the component\n};\n```\n\nThis ensures ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/raphy/dev/ument/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "selectedInterests",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 25,
+                "startColumn": 10,
+                "endLineNumber": 25,
+                "endColumn": 10
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "external": "file:///home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "path": "/home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "d653ffc7-7f90-40e0-adc5-d40a332ae4e7"
+        },
+        {
+          "value": " state stays in sync with the ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/raphy/dev/ument/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "value",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 20,
+                "startColumn": 3,
+                "endLineNumber": 20,
+                "endColumn": 3
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "external": "file:///home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "path": "/home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "7a998169-e0d9-4cd0-b30e-d6ef3b75f97a"
+        },
+        {
+          "value": " prop when the parent's ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/raphy/dev/ument/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "interestList",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 8,
+                "startColumn": 10,
+                "endLineNumber": 8,
+                "endColumn": 10
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+                "external": "file:///home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+                "path": "/home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "ff3b57e4-e364-4e4c-83fb-6901acfdaf68"
+        },
+        {
+          "value": " updates after the API call completes.\n\nAlso, you might want to add a loading state in ",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/raphy/dev/ument/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "inlineReference",
+          "inlineReference": {
+            "name": "InterestBox",
+            "kind": 12,
+            "containerName": "",
+            "location": {
+              "range": {
+                "startLineNumber": 7,
+                "startColumn": 7,
+                "endLineNumber": 7,
+                "endColumn": 7
+              },
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+                "external": "file:///home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+                "path": "/home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+                "scheme": "file"
+              }
+            }
+          },
+          "resolveId": "997c6570-b72a-4618-9c13-8c570c34adbf"
+        },
+        {
+          "value": " while fetching:\n\n```tsx\n",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/raphy/dev/ument/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "codeblockUri",
+          "uri": {
+            "$mid": 1,
+            "external": "file:///home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+            "path": "/home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+            "scheme": "file"
+          }
+        },
+        {
+          "value": "const InterestBox = () => {\n  const [interestList, setInterestList] = useState<InterestType[]>([]);\n  const [isLoading, setIsLoading] = useState(true);\n\n  useEffect(() => {\n    const fn = async () => {\n      setIsLoading(true);\n      const data: InterestType[] = await getInterestsList();\n      setInterestList(data);\n      setIsLoading(false);\n    };\n    fn();\n  }, []);\n\n  if (isLoading) return <div>Loading interests...</div>;\n  \n  // ...rest of the component\n};\n```",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/raphy/dev/ument/",
+            "scheme": "file"
+          }
+        }
+      ],
+      "responseId": "response_519b7c68-dcba-4d1e-8951-79f0a8db191f",
+      "result": {
+        "timings": {
+          "firstProgress": 6449,
+          "totalElapsed": 15565
+        },
+        "metadata": {
+          "codeBlocks": [
+            {
+              "code": "const AddInterestBtn = (props: Props) => {\n  const [selectedInterests, setSelectedInterests] = useState<InterestType[]>(\n    props.value\n  );\n\n  // Add this useEffect\n  useEffect(() => {\n    setSelectedInterests(props.value);\n  }, [props.value]);\n\n  // ...rest of the component\n};\n",
+              "resource": {
+                "$mid": 1,
+                "path": "/home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+                "scheme": "file"
+              },
+              "language": "tsx",
+              "markdownBeforeBlock": "Let's analyze the issue with props.value in the AddInterestBtn component:\n\n1. **Problem Identification**:\nIn , you're correctly:\n- Fetching interests with \n- Storing them in  state\n- Passing  as  prop to \n\n2. **Issue**:\nThe issue might be with the initial render timing:\n-  starts as an empty array `[]`\n-  runs after first render to fetch data\n-  receives empty array initially\n- When data loads, the prop updates but state might not sync\n\n3. **Solution**:\nAdd a useEffect in  to sync with prop changes:\n\n"
+            },
+            {
+              "code": "const InterestBox = () => {\n  const [interestList, setInterestList] = useState<InterestType[]>([]);\n  const [isLoading, setIsLoading] = useState(true);\n\n  useEffect(() => {\n    const fn = async () => {\n      setIsLoading(true);\n      const data: InterestType[] = await getInterestsList();\n      setInterestList(data);\n      setIsLoading(false);\n    };\n    fn();\n  }, []);\n\n  if (isLoading) return <div>Loading interests...</div>;\n  \n  // ...rest of the component\n};\n",
+              "resource": {
+                "$mid": 1,
+                "path": "/home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+                "scheme": "file"
+              },
+              "language": "tsx",
+              "markdownBeforeBlock": "\nThis ensures  state stays in sync with the  prop when the parent's  updates after the API call completes.\n\nAlso, you might want to add a loading state in  while fetching:\n\n"
+            }
+          ],
+          "messages": [
+            {
+              "role": "user",
+              "content": "/explain the props.value not coming from the parent component. in the parent component the interestList fetched from api correctly"
+            },
+            {
+              "role": "assistant",
+              "content": "Let's analyze the issue with props.value in the AddInterestBtn component:\n\n1. **Problem Identification**:\nIn `InterestBox.tsx`, you're correctly:\n- Fetching interests with `getInterestsList()`\n- Storing them in `interestList` state\n- Passing `interestList` as `value` prop to `AddInterestBtn`\n\n2. **Issue**:\nThe issue might be with the initial render timing:\n- `interestList` starts as an empty array `[]`\n- `useEffect` runs after first render to fetch data\n- `AddInterestBtn` receives empty array initially\n- When data loads, the prop updates but state might not sync\n\n3. **Solution**:\nAdd a useEffect in `AddInterestBtn` to sync with prop changes:\n\n```tsx\n// filepath: /home/raphy/dev/ument/app/ui/AddInterestBtn.tsx\nconst AddInterestBtn = (props: Props) => {\n  const [selectedInterests, setSelectedInterests] = useState<InterestType[]>(\n    props.value\n  );\n\n  // Add this useEffect\n  useEffect(() => {\n    setSelectedInterests(props.value);\n  }, [props.value]);\n\n  // ...rest of the component\n};\n```\n\nThis ensures `selectedInterests` state stays in sync with the `value` prop when the parent's `interestList` updates after the API call completes.\n\nAlso, you might want to add a loading state in `InterestBox` while fetching:\n\n```tsx\n// filepath: /home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx\nconst InterestBox = () => {\n  const [interestList, setInterestList] = useState<InterestType[]>([]);\n  const [isLoading, setIsLoading] = useState(true);\n\n  useEffect(() => {\n    const fn = async () => {\n      setIsLoading(true);\n      const data: InterestType[] = await getInterestsList();\n      setInterestList(data);\n      setIsLoading(false);\n    };\n    fn();\n  }, []);\n\n  if (isLoading) return <div>Loading interests...</div>;\n  \n  // ...rest of the component\n};\n```"
+            }
+          ],
+          "modelMessageId": "3e29d0b7-3f94-4a5e-96ec-e8c00a3d2024",
+          "responseId": "2e81aed4-d0a5-49b9-ad9a-8feadd9c7156",
+          "sessionId": "9f68089a-125a-432d-b893-c11997de9299",
+          "agentId": "github.copilot.default"
+        }
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.default",
+        "description": "Ask Copilot",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": true,
+          "helpTextPrefix": "You can ask me general programming questions, or chat with the following participants which have specialized expertise and can perform actions:",
+          "helpTextVariablesPrefix": "You can also help me understand your question by using the following variables to give me extra context:",
+          "helpTextPostfix": {
+            "value": "To have a great conversation, ask me questions as if I was a real programmer:\n\n* **Show me the code** you want to talk about by having the files open and selecting the most important lines.\n* **Make refinements** by asking me follow-up questions, adding clarifications, providing errors, etc.\n* **Review my suggested code** and tell me about issues or improvements, so I can iterate on it.\n\nYou can also ask me questions about your editor selection by [starting an inline chat session](command:inlineChat.start).\n\nLearn more about [GitHub Copilot](https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted) in [Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview). Or explore the [Copilot walkthrough](command:github.copilot.open.walkthrough).",
+            "isTrusted": {
+              "enabledCommands": [
+                "inlineChat.start",
+                "github.copilot.open.walkthrough"
+              ]
+            },
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "uris": {
+              "command:inlineChat.start": {
+                "$mid": 1,
+                "path": "inlineChat.start",
+                "scheme": "command"
+              },
+              "https://docs.github.com/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted": {
+                "$mid": 1,
+                "path": "/copilot/using-github-copilot/getting-started-with-github-copilot",
+                "scheme": "https",
+                "authority": "docs.github.com",
+                "query": "tool=vscode&utm_source=editor&utm_medium=chat-panel&utm_campaign=2024q3-em-MSFT-getstarted"
+              },
+              "https://code.visualstudio.com/docs/copilot/overview": {
+                "$mid": 1,
+                "path": "/docs/copilot/overview",
+                "scheme": "https",
+                "authority": "code.visualstudio.com"
+              },
+              "command:github.copilot.open.walkthrough": {
+                "$mid": 1,
+                "path": "github.copilot.open.walkthrough",
+                "scheme": "command"
+              }
+            }
+          },
+          "supportIssueReporting": false,
+          "welcomeMessageContent": {
+            "icon": {
+              "id": "copilot-large"
+            },
+            "title": "Ask Copilot",
+            "message": {
+              "value": "Copilot is powered by AI, so mistakes are possible. Review output carefully before use.",
+              "supportThemeIcons": false,
+              "supportHtml": false,
+              "uris": {}
+            }
+          },
+          "requester": {
+            "name": "rafidoth",
+            "icon": {
+              "$mid": 1,
+              "path": "/u/67283985",
+              "scheme": "https",
+              "authority": "avatars.githubusercontent.com",
+              "query": "v=4"
+            }
+          }
+        },
+        "name": "GitHubCopilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "slashCommands": [],
+        "disambiguation": [
+          {
+            "category": "generate_code_sample",
+            "description": "The user wants to generate code snippets without referencing the contents of the current workspace. This category does not include generating entire projects.",
+            "examples": [
+              "Write an example of computing a SHA256 hash."
+            ]
+          },
+          {
+            "category": "add_feature_to_file",
+            "description": "The user wants to change code in a file that is provided in their request, without referencing the contents of the current workspace. This category does not include generating entire projects.",
+            "examples": [
+              "Add a refresh button to the table widget."
+            ]
+          },
+          {
+            "category": "question_about_specific_files",
+            "description": "The user has a question about a specific file or code snippet that they have provided as part of their query, and the question does not require additional workspace context to answer.",
+            "examples": [
+              "What does this file do?"
+            ]
+          }
+        ]
+      },
+      "contentReferences": [
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "/home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+            "external": "file:///home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+            "path": "/home/raphy/dev/ument/app/ui/AddInterestBtn.tsx",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "reference",
+          "reference": {
+            "$mid": 1,
+            "fsPath": "/home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+            "external": "file:///home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+            "path": "/home/raphy/dev/ument/app/ui/InterestBoxUI/InterestBox.tsx",
+            "scheme": "file"
+          }
+        }
+      ],
+      "codeCitations": [],
+      "timestamp": 1744268237498
+    }
+  ],
+  "sessionId": "11a8e4b7-bbc6-408a-a127-fdd11399978b",
+  "creationDate": 1741597139918,
+  "isImported": false,
+  "lastMessageDate": 1744268237498,
+  "customTitle": "Integrating select inputs with a calendar component"
+}

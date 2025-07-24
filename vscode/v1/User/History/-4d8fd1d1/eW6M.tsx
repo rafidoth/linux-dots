@@ -1,0 +1,48 @@
+"use client";
+import React from "react";
+import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
+
+type Props = {};
+const tStyle =
+  "border-none text-9xl bg-transparent display-inline w-1/2 outline-none caret-transparent text-center appearance-none";
+
+const validateHour = (hour: number) => {
+  return hour >= 0 && hour <= 23;
+};
+const validateMinute = (minute: number) => {
+  return minute >= 0 && minute <= 59;
+};
+
+function TimeSelection({}: Props) {
+  const [hour, setHour] = React.useState<number>(7);
+  const [minute, setMinute] = React.useState<number>(30);
+  return (
+    <div>
+      <div className="flex gap-2 border-none w-[400px]">
+        <input
+          type="number"
+          placeholder="00"
+          value={hour < 10 ? `0${hour}` : hour}
+          onChange={(e) =>
+            validateHour(parseInt(e.target.value)) &&
+            setHour(parseInt(e.target.value))
+          }
+          className={cn(tStyle)}
+        />
+        <input
+          type="number"
+          placeholder="00"
+          value={minute < 10 ? `0${minute}` : minute}
+          className={cn(tStyle)}
+          onChange={(e) =>
+            validateMinute(parseInt(e.target.value)) &&
+            setMinute(parseInt(e.target.value))
+          }
+        />
+      </div>
+    </div>
+  );
+}
+
+export default TimeSelection;

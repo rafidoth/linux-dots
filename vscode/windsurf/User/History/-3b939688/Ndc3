@@ -1,0 +1,22 @@
+shadcn added & working. 
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	new file:   frontend/components.json
+#	new file:   frontend/components/ui/button.jsx
+#	new file:   frontend/jsconfig.json
+#	new file:   frontend/lib/utils.js
+#	modified:   frontend/package.json
+#	modified:   frontend/src/App.css
+#	modified:   frontend/src/App.jsx
+#	new file:   frontend/src/app/QuizGenerationPage.jsx
+#	new file:   frontend/src/app/Sidebar.jsx
+#	modified:   frontend/src/index.css
+#	modified:   frontend/src/main.jsx
+#	modified:   frontend/vite.config.js
+#	modified:   pnpm-lock.yaml
+#

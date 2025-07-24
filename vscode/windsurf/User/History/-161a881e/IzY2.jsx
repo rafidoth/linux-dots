@@ -1,0 +1,100 @@
+import { useState, useRef, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Pencil, Check, X } from "lucide-react";
+
+export default function EditableTitle({
+  title,
+  onSave,
+  className = "",
+  titleClassName = "text-3xl font-bold",
+  inputClassName = "text-3xl font-bold",
+  disabled = false,
+}) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedTitle, setEditedTitle] = useState(title);
+  const inputRef = useRef(null);
+
+  // Focus the input when entering edit mode
+  useEffect(() => {
+    if (isEditing && inputRef.current) {
+      inputRef.current.focus();
+      inputRef.current.select();
+    }
+  }, [isEditing]);
+
+  const handleEdit = () => {
+    if (disabled) return;
+    setIsEditing(true);
+  };
+
+  const handleCancel = () => {
+    setEditedTitle(title);
+    setIsEditing(false);
+  };
+
+  const handleSave = () => {
+    if (editedTitle.trim() !== "") {
+      onSave(editedTitle);
+    } else {
+      setEditedTitle(title); // Reset to original if empty
+    }
+    setIsEditing(false);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSave();
+    } else if (e.key === "Escape") {
+      handleCancel();
+    }
+  };
+
+  return (
+    <div className={`flex items-center gap-2 ${className}`}>
+      {isEditing ? (
+        <div className="flex items-center gap-2">
+          <Input
+            ref={inputRef}
+            type="text"
+            value={editedTitle}
+            onChange={(e) => setEditedTitle(e.target.value)}
+            onKeyDown={handleKeyDown}
+            onBlur={handleSave}
+            className={inputClassName}
+            autoFocus
+          />
+          <Button
+            size="sm"
+            variant="ghost"
+            onClick={handleSave}
+            className="p-1"
+          >
+            <Check className="h-4 w-4" />
+          </Button>
+          <Button
+            size="sm"
+            variant="ghost"
+            onClick={handleCancel}
+            className="p-1"
+          >
+            <X className="h-4 w-4" />
+          </Button>
+        </div>
+      ) : (
+        <Button onClick={handleEdit} variant="outline" className="p-4">
+          <span className={titleClassName}>{title}</span>
+          <Button
+            size="sm"
+            variant="ghost"
+            onClick={handleEdit}
+            className="p-1"
+            disabled={disabled}
+          >
+            <Pencil className={`h-4 w-4 ${disabled ? "text-gray-400" : ""}`} />
+          </Button>
+        </Button>
+      )}
+    </div>
+  );
+}

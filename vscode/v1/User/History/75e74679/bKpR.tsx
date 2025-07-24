@@ -1,0 +1,16 @@
+"use client";
+
+export default function GenearatedQuizViewLoading() {
+  return (
+    <div className={`w-full max-h-full overflow-hidden p-2 flex flex-col`}>
+      <div className="h-[800px] flex overflow-auto scrollbar flex-wrap gap-4 items-center">
+        {Array.from({ length: 6 }).map((_, index) => (
+          <div
+            key={index}
+            className="animate-pulse bg-gray-300 h-40 w-60"
+          ></div>
+        ))}
+      </div>
+    </div>
+  );
+}

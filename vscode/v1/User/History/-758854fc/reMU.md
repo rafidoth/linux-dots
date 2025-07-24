@@ -1,0 +1,10 @@
+### Interfaces
+
+- a set of methods and a type,
+- it is used for defining the behavior of other types.
+
+> If you find yourselves defining an interface and its implementation in the
+> same Go package, then you might have been using interfaces the wrong
+> way!
+
+![](image.png)

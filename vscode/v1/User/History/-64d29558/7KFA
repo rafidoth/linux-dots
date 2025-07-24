@@ -1,0 +1,2 @@
+JWT_SECRET=my_secure_secret_key
+NEXT_PUBLIC_API_URL=https://evidently-handy-troll.ngrok-free.app

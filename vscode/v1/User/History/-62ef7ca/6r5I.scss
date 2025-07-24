@@ -1,0 +1,21 @@
+@use '../../../colors.scss';
+
+.main{
+    display: flex;
+    width: 100px;
+    height: 100px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    span{
+        padding-left : 5px ;
+        padding-right: 5px ;
+        border-radius: 3px;
+    }
+}
+
+
+.selected{
+    background-color:var(--secondary-color) 
+}

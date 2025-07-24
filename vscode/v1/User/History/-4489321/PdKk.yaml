@@ -1,0 +1,4 @@
+# jigao-new/pnpm-workspace.yaml (in the root directory)
+packages:
+  - "apps/*"
+  - "shared"

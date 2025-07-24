@@ -1,0 +1,17 @@
+# Time Complexity Analysis of Recursive Function
+
+There are several ways :
+
+- Master Theorem
+- Recursion Tree
+- Substitution
+
+
+
+<br>
+
+# Recursion Tree Method
+
+
+Problem 1  : $T(\frac{n}{2})$<br> 
+

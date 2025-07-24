@@ -1,0 +1,165 @@
+{
+  "editor.mouseWheelZoom": true,
+  "editor.fontFamily": "'FantasqueSansM Nerd Font','JetBrainsMono Nerd Font', 'Terminess Nerd Font Mono','ZedMono Nerd Font' ,'Iosevka Nerd Font','Inconsolata Nerd Font Mono'",
+
+  // vim config
+  "vim.vimrc.enable": true,
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.leader": "<space>",
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<C-j>"],
+      "after": ["5", "j"]
+    },
+    {
+      "before": ["<C-k>"],
+      "after": ["5", "k"]
+    },
+    {
+      "before": ["<S-h>"],
+      "after": ["5", "h"]
+    },
+    {
+      "before": ["<S-l>"],
+      "after": ["5", "l"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [":"],
+      "commands": ["vim.showQuickpickCmdLine"]
+    },
+    {
+      "before": ["/"],
+      "commands": ["actions.findInFiles"]
+    },
+    {
+      "before": ["<C-j>"],
+      "after": ["5", "j"]
+    },
+    {
+      "before": ["<C-k>"],
+      "after": ["5", "k"]
+    },
+    {
+      "before": ["<S-h>"],
+      "after": ["5", "h"]
+    },
+    {
+      "before": ["<S-l>"],
+      "after": ["5", "l"]
+    }
+  ],
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  "editor.wordWrap": "on",
+  "window.menuBarVisibility": "toggle",
+  "vim.vimrc.path": "$HOME/.vscodevimrc",
+  "editor.cursorStyle": "block",
+  "editor.cursorBlinking": "solid",
+  "breadcrumbs.enabled": false,
+  "editor.guides.indentation": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "explorer.openEditors.visible": 1,
+  "workbench.tree.renderIndentGuides": "none",
+  "editor.minimap.enabled": false,
+  "editor.stickyScroll.enabled": false,
+  "workbench.editor.tabSizing": "fixed",
+  "breadcrumbs.filePath": "off",
+  "workbench.editor.labelFormat": "short",
+  "workbench.editor.customLabels.enabled": false,
+  "workbench.panel.showLabels": false,
+  "terminal.integrated.letterSpacing": 1,
+  "go.toolsManagement.autoUpdate": true,
+  "git.enableSmartCommit": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontWeight": "normal",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "workbench.activityBar.location": "hidden",
+  "editor.lineNumbers": "off",
+  "debug.inlineValues": "off",
+  "editor.showFoldingControls": "never",
+  "git.decorations.enabled": false,
+  "editor.glyphMargin": false,
+  "scm.diffDecorations": "overview",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "comment",
+          "keyword",
+          "storage.modifier",
+          "storage.type.class.js"
+          // "string"
+          // "storage.type.js",
+          // "storage.type.tsx"
+        ],
+        "settings": {
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "scope": ["keyword.control.conditional", "keyword.operator"],
+        "settings": {
+          "fontStyle": ""
+        }
+      }
+    ]
+  },
+
+  "workbench.colorCustomizations": {
+    "editor.background": "#121212",
+    //   "sideBar.background": "#121212",
+    //   "sideBar.border": "#121212",
+    //   "panel.background": "#121212",
+    // "tab.activeBackground": "#3d3555",
+    //   "tab.inactiveBackground": "#121212",
+    //   "tab.border": "#121212",
+    //   "editorGroupHeader.tabsBackground": "#121212",
+    //   "list.hoverBackground": "#0c0a09",
+    //   "list.activeSelectionBackground": "#0c0a09",
+    //   "list.inactiveSelectionBackground": "#1e1e1e",
+    //   "editorGutter.background": "#121212"
+    "editorCursor.foreground": "#efcc96",
+    "editorCursor.background": "#000000",
+    "editorError.background": "#ff000041"
+  },
+  "workbench.sideBar.location": "right",
+  "window.density.editorTabHeight": "compact",
+  "workbench.colorTheme": "Monokai Vibrant",
+  "window.zoomLevel": 2,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "window.commandCenter": false,
+  "chat.commandCenter.enabled": false,
+  "window.customTitleBarVisibility": "never",
+  "window.titleBarStyle": "native",
+  "editor.fontSize": 15,
+  "editor.lineHeight": 1.6,
+  "multiCommand.commands": [
+    {
+      "command": "extension.saveAndEscape",
+      "sequence": ["extension.vim_escape", "workbench.action.files.save"]
+    }
+  ],
+  "workbench.statusBar.visible": false,
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.horizontalScrollbarSize": 1,
+  "editor.scrollbar.verticalScrollbarSize": 1,
+  "editor.bracketPairColorization.enabled": false,
+  "editor.renderWhitespace": "trailing",
+  "leetcode.workspaceFolder": "/home/raphy/dev/leetcodehq",
+  "leetcode.defaultLanguage": "golang"
+}

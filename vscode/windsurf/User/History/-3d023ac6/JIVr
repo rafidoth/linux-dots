@@ -1,0 +1,4 @@
+VITE_SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9nd2l0cXBrbXhleWVreG5vYnBwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk4OTYxNjQsImV4cCI6MjA1NTQ3MjE2NH0.pTaRcyDpl1XJ56HqdaTeNrwSUYICqau81h-VRMSQDHo"
+VITE_SUPABASE_URL="https://ogwitqpkmxeyekxnobpp.supabase.co"
+
+VITE_SERVER_URL="http://localhost:3000"

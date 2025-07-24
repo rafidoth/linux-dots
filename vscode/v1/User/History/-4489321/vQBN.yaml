@@ -1,0 +1,6 @@
+# jigao-new/pnpm-workspace.yaml (in the root directory)
+packages:
+  - "web" # Assuming 'web' is a direct subdirectory of the root
+  - "backend" # If your jigao-new is the backend, it could be 'backend'
+  # - 'packages/*' # If you have a 'packages' folder containing your apps/libs
+  # - 'shared' # If you have a shared package named 'shared'

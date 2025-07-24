@@ -1,0 +1,37 @@
+"use client";
+import React from "react";
+import { useCalendarContext } from "./CalendarContext";
+
+type Props = {};
+
+import { getMonth } from "date-fns";
+import { cn } from "@/lib/utils";
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+const CalendarMonthSwitcher = (props: Props) => {
+  const { date, setDate } = useCalendarContext();
+  const month = months[getMonth(date)];
+  return (
+    <div>
+      <div className={cn("w-[40px] flex flex-col")}>
+        <span className="w-full">{month}</span>
+        <span className="w-full">{date.getDate()}</span>
+      </div>
+    </div>
+  );
+};
+
+export default CalendarMonthSwitcher;

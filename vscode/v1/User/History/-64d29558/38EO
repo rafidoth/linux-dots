@@ -1,0 +1,2 @@
+JWT_SECRET=my_secure_secret_key
+NEXT_PUBLIC_API_URL=https://a60c-202-83-126-164.ngrok-free.app
